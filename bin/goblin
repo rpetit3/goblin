@@ -1,0 +1,351 @@
+#! /usr/bin/env python3
+import sys
+from pathlib import Path
+from rich import print
+from rich.console import Console
+from rich.table import Table
+import rich_click as click
+
+VERSION = "0.0.1"
+
+import rich_click as click
+click.rich_click.USE_RICH_MARKUP = True
+click.rich_click.OPTION_GROUPS = {
+    "goblin": [
+        {
+            "name": "Required",
+            "options": ["--query", "--prefix"],
+        },
+        {
+            "name": "ncbi-genome-download",
+            "options": ["--assembly_level", "--limit"],
+        },
+        {
+            "name": "CD-HIT",
+            "options": ["--identity", "--overlap", "--max_memory", "--fast_cluster"],
+        },
+    ]
+}
+
+
+def check_dependencies():
+    """
+    Check that the required programs are available, if not exit (1).
+    """
+    from shutil import which
+    exit_code = 0
+    print(f'Checking dependencies...', file=sys.stderr)
+    for program in ['ncbi-genome-download', 'cd-hit', 'gzip']:
+        which_path = which(program)
+        if which_path:
+            print(f'Found {program} at {which_path}', file=sys.stderr)
+        else:
+            print(f'{program} not found', file=sys.stderr)
+            exit_code = 1
+    
+    if exit_code == 1:
+        print(f'Missing dependencies, please check.', file=sys.stderr)
+    else:
+        print(f'You are all set!', file=sys.stderr)
+    sys.exit(exit_code)
+
+
+def get_log():
+    return log_file
+
+def set_log(log):
+    global log_file
+    log_file = log
+
+def write_to_log(cmd, stdout, stderr):
+    """Write the command and output to a log file."""
+    with open(get_log(), 'a') as log_fh:
+        log_fh.write(f'Command: {cmd}\n\nSTDOUT\n{stdout}\nSTDERR\n{stderr}\n')
+
+
+def execute(cmd, directory=Path.cwd(), skip_log=False):
+    """A simple wrapper around executor."""
+    from executor import ExternalCommand, ExternalCommandFailed
+    try:
+        command = ExternalCommand(
+            cmd, directory=directory, capture=True, capture_stderr=True
+        )
+
+        command.start()
+        if not skip_log:
+            write_to_log(cmd, str(command.decoded_stdout), str(command.decoded_stderr))
+        return str(command.decoded_stdout).split("\n")
+    except ExternalCommandFailed as e:
+        print(e, file=sys.stderr)
+        sys.exit(e.returncode)
+
+
+def download_genomes(query, assembly_level, outdir, limit, is_taxid, debug):
+    """Query NCBI for genomes."""
+    import random
+
+    accessions_file = f'{outdir}/ncbi-accessions.txt'
+    total_query_hits = 0
+    if Path(query).is_file():
+        # Got a file, copy it into the logs directory
+        execute(f'cp {query} {accessions_file}')
+        total_query_hits = execute(f'wc -l {accessions_file}')
+    else:
+        accessions = []
+        final_accessions = []
+        query_param = ""
+        if query.isdigit():
+            # Got a TaxID
+            query_param = "--taxids" if is_taxid else "--species-taxids"
+        else:
+            # Got a species name
+            query_param = "--genera"
+        
+        # Do a dry run to get the list of accessions, then randomly select based on limit
+        results = execute(
+            f'ncbi-genome-download bacteria {query_param} "{query}" -l {assembly_level} -F genbank -r 10 --dry-run'
+        )
+        if results:
+            for line in results:
+                if line and not line.startswith('Considering'):
+                    accessions.append(line.split('\t', 1)[0])
+
+        total_query_hits = len(accessions)
+        if len(accessions) > limit:
+            final_accessions = random.sample(accessions, limit)
+        else:
+            final_accessions = accessions
+        
+        # Write the final set of accessions to a file
+        with open(accessions_file, 'w') as accessions_fh:
+            for accession in final_accessions:
+                accessions_fh.write(f'{accession}\n')
+
+    # Download using a file of accessions
+    execute(
+        f'ncbi-genome-download bacteria -A {accessions_file} -l {assembly_level} -o {outdir}/genomes -F genbank -r 10 -m {outdir}/ncbi-metadata.txt'
+    )
+
+    # Return a list of downloaded GenBank files
+    gbff_files = execute('find . -name "*.gbff.gz"', directory=outdir)
+    if debug:
+        print(gbff_files)
+    
+    return [gbff_files, total_query_hits]
+
+
+def format_cds(cds):
+    """Look over the CDS attributes and return formatted header and AA sequence for non pseudo/hypotheticals"""
+    header = None
+    seq = None
+    qualifiers = cds.keys()
+    ec_number = ''
+    gene = ''
+    product = ''
+    is_pseudo = ('pseudo' in qualifiers or 'pseudogene' in qualifiers)
+    is_hypothetical = (product.lower() == "hypothetical protein")
+    if not is_pseudo and not is_hypothetical:
+        if 'ec_number' in qualifiers:
+            ec_number = cds['ec_number'][0]
+        if 'gene' in qualifiers:
+            gene = cds['gene'][0]
+        if 'product' in qualifiers:
+            product = cds['product'][0]
+        if 'protein_id' in qualifiers:
+            protein_id = cds['protein_id'][0]
+        elif 'locus_tag' in qualifiers:
+            protein_id = cds['locus_tag'][0]
+
+        """
+        Required format for Prokka: >SeqID EC_number~~~gene~~~product~~~COG
+        """
+        header = f'>{protein_id} {ec_number}~~~{gene}~~~{product}'
+        seq = cds['translation'][0]
+
+    return [header, seq, is_pseudo, is_hypothetical]
+
+
+def parse_gbff(gbffs, outdir, debug):
+    """
+    Extract genome size and proteins from GenBank files
+    """
+    import gzip
+    import json
+    from Bio import SeqIO
+    from statistics import median, mean
+    genome_sizes = []
+    seqs = []
+    total_cds = 0
+
+    for gbff in gbffs:
+        gbff_path = f'{outdir}/{gbff}'
+        if debug:
+            print(f'Parsing {gbff_path}...', file=sys.stderr)
+        if Path(gbff_path).is_file() and gbff_path.endswith('.gbff.gz'):
+            # Parse the genbank file and extract the genome size and CDS sequences
+            with gzip.open(f'{outdir}/{gbff}', 'rt') as gbff_fh:
+                gs = 0
+                for record in SeqIO.parse(gbff_fh, 'genbank'):
+                    # Consider sum of each record sequence length as genome size
+                    # This is not always accurate, due to potential inclusion of plasmids,
+                    # but it allows the use of incomplete genomes (e.g. multiple contigs)
+                    gs += len(record.seq)
+                    for dbxref in record.dbxrefs:
+                        if dbxref.startswith('Assembly'):
+                            for feature in record.features:
+                                if feature.type == 'CDS':
+                                    # Format the CDS with proper header
+                                    total_cds += 1
+                                    seqs.append(format_cds(feature.qualifiers))
+                genome_sizes.append(gs)
+
+    # Write the full CDS file, and collect stats on pseudo/hypothetical
+    total_pseudo = 0
+    total_hypothetical = 0
+    total_passed = 0
+    full_cds_file = f'{outdir}/genomes/full_cds.faa'
+    with open(full_cds_file, 'w') as full_cds_fh:
+        for seq in seqs:
+            header = seq[0]
+            sequence = seq[1]
+            is_pseudo = seq[2]
+            is_hypothetical = seq[3]
+
+            if header and sequence:
+                total_passed += 1
+                full_cds_fh.write(f'{header}\n{sequence}\n')
+            elif is_pseudo:
+                total_pseudo += 1
+            elif is_hypothetical:
+                total_hypothetical += 1
+
+    # Write the genome sizes file
+    genome_size_dict = {
+        'min': min(genome_sizes),
+        'median': int(median(genome_sizes)),
+        'mean': int(mean(genome_sizes)),
+        'max': max(genome_sizes),
+        'total': len(genome_sizes),
+        'description': f'Genome size values are based on {len(genome_sizes)} genomes'
+    }
+    with open(f'{outdir}/genome_size.json', 'w') as genome_size_fh:
+        json.dump(genome_size_dict, genome_size_fh, indent=4)
+
+    return {
+        'full_cds_file': full_cds_file,
+        'total_cds': total_cds,
+        'total_genomes': len(genome_sizes),
+        'total_hypothetical': total_hypothetical,
+        'total_passed': total_passed,
+        'total_pseudo': total_pseudo,
+        'genome_size_min': min(genome_sizes),
+        'genome_size_median': int(median(genome_sizes)),
+        'genome_size_mean': int(mean(genome_sizes)),
+        'genome_size_max': max(genome_sizes),
+        'genome_size_total': len(genome_sizes),
+        'genome_size_description': f'Genome size values are based on {len(genome_sizes)} genomes'
+    }
+
+
+def run_cdhit(full_faa, prefix, outdir, identity, overlap, cpus, max_memory, fast_cluster, debug):
+    """
+    Run CD-HIT-EST to cluster protein sequences
+    """
+    g = 0 if fast_cluster else 1
+    cdhit_faa = f'{outdir}/genomes/{prefix}.faa'
+    execute(f'cd-hit -i {full_faa} -o {cdhit_faa} -s {overlap} -g {g} -c {identity} -T {cpus} -M {max_memory}')
+
+    # Move final CD-HIT output to root directory
+    execute(f'mv {cdhit_faa} {outdir}')
+
+    # return the final number of clusters
+    return int(execute(f'grep -H -c "^>" {outdir}/{prefix}.faa')[0].strip().split(':')[1])
+
+
+@click.command(context_settings=dict(help_option_names=["-h", "--help"]))
+@click.version_option(VERSION)
+@click.option('--query', required=True, help='Download genomes for a given query (organism, taxid, file of accessions)')
+@click.option('--prefix', required=True, help='Prefix to use to save outputs')
+# ncbi-genome-download Options
+@click.option('--assembly_level', default="complete", show_default=True, help='Assembly levels of genomes to download',
+               type=click.Choice(['all', 'complete', 'chromosome', 'scaffold', 'contig', 'complete,chromosome', 'chromosome,complete']))
+@click.option('--is_taxid', is_flag=True, help='Given taxid should be treated as a taxid (not a species taxid)')
+@click.option('--limit', default=100, show_default=True, help='Maximum number of genomes to download')
+# CDHIT Options
+@click.option('--identity', default=0.9, show_default=True, help='CD-HIT (-c) sequence identity threshold')
+@click.option('--overlap', default=0.8, show_default=True, help='CD-HIT (-s) length difference cutoff')
+@click.option('--max_memory', default=0, show_default=True, help='CD-HIT (-M) memory limit (in MB) (0 removes memory limits)')
+@click.option('--fast_cluster', is_flag=True, help='Use CD-HIT (-g 0) fast clustering algorithm')
+# General Options
+@click.option('--outdir', default="./", show_default=True, help='Directory to save output files')
+@click.option('--force', is_flag=True, help='Overwrite existing files')
+@click.option('--compress', is_flag=True, help='Compress final clustered proteins and log file')
+@click.option('--cpus', default=1, show_default=True, help='Number of cpus to use')
+@click.option('--keep_files', is_flag=True, help='Keep all downloaded and intermediate files')
+@click.option('--debug', is_flag=True, help='Print additional debug information')
+@click.option('--check', is_flag=True, help='Check dependencies are installed, then exit')
+def goblin(query, prefix, assembly_level, is_taxid, limit, identity, overlap, max_memory, fast_cluster, outdir, force, cpus, compress, keep_files, debug, check):
+    """[u]G[/u]enerate trusted pr[u]O[/u]teins to supplement [u]B[/u]acteria[u]L[/u] annotat[u]I[/u]o[u]N[/u]"""
+    from datetime import datetime
+
+    workdir = f'{outdir}/{prefix}'
+    set_log(f'{outdir}/{prefix}/goblin.log')
+    if Path(workdir).exists() and not force:
+        print(f"Output directory '{workdir}' already exists, use --force to overwrite")
+        sys.exit(1)
+    else:
+        if force:
+            # Remove existing directory
+            execute(f'rm -rf {workdir}', skip_log=True)
+
+        # Create directory
+        Path(f'{workdir}').mkdir(parents=True, exist_ok=True)
+
+        print("[italic]Downloading genomes from NCBI...[/italic]")
+        gbff_files, total_query_hits = download_genomes(query, assembly_level, workdir, limit, is_taxid, debug)
+
+        if len(gbff_files):
+            print("[italic]\nParsing GenBank files...[/italic]")
+            gbff_info = parse_gbff(gbff_files, workdir, debug)
+
+            print("[italic]\nRunning CD-HIT...[/italic]")
+            total_clusters = run_cdhit(gbff_info['full_cds_file'], prefix, workdir, identity, overlap, cpus, max_memory, fast_cluster, debug)
+
+            # Clean up
+            if not keep_files:
+                print("[italic]\nCleaning up temporary files...[/italic]")
+                execute(f'rm -rf {workdir}/genomes')
+                if compress:
+                    execute(f'gzip --best {workdir}/{prefix}.faa')
+                    execute(f'gzip --best {workdir}/goblin.log', skip_log=True)
+
+            # Generate summary file
+            with open(f'{workdir}/goblin-summary.txt', 'w') as summary_fh:
+                d = {
+                    'run_cmd': ' '.join(sys.argv),
+                    'run_date': datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                    'total_query_hits': total_query_hits,
+                    'total_genomes': gbff_info['total_genomes'],
+                    'total_cds': gbff_info['total_cds'],
+                    'total_hypothetical': gbff_info['total_hypothetical'],
+                    'total_pseudogenes': gbff_info['total_pseudo'],
+                    'total_proteins': gbff_info['total_passed'],
+                    'total_clusters': total_clusters,
+                    'percent_reduced': f"{(1.0 - total_clusters / float(gbff_info['total_passed'])):.2f}"
+                }
+                print("[italic]\nGoblin Summary[/italic]")
+                for k, v in d.items():
+                    print(f"{k}: {v}")
+                    summary_fh.write(f"{k}\t{v}\n")
+        else:
+            print("No genomes found, exiting")
+            sys.exit(1)
+
+
+if __name__ == '__main__':
+    if len(sys.argv) == 1:
+        goblin.main(['--help'])
+    elif "--check" in sys.argv:
+        check_dependencies()
+    else:
+        goblin()
