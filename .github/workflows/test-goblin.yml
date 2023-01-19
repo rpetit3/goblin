@@ -49,4 +49,4 @@ jobs:
           cat saureus-name/goblin-summary.json
           echo "Accessions"
           bin/goblin --query test/accessions.txt --prefix saureus-accessions --force
-          cat saureus-accessions/goblin-summary.json
+          cat saureus-accessions/goblin-summary.tsv
