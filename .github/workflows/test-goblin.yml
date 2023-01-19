@@ -27,7 +27,7 @@ jobs:
 
       - name: Setup goblin Environment
         run: |
-          conda install -y -c conda-forge -c bioconda rich-click executor 'python>=3.7' cd-hit biopython
+          conda install -y -c conda-forge -c bioconda rich-click executor 'python>=3.7' cd-hit biopython ncbi-genome-download
 
       - name: Environment Information
         run: uname -a && env
