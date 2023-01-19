@@ -45,7 +45,7 @@ jobs:
           bin/goblin --query 1280 --prefix saureus-taxid --limit 10 --force
           cat saureus-taxid/goblin-summary.json
           echo "Name"
-          bin/goblin --query "Staphylococcus aureus" --prefix saureus-name --limit 10 --force
+          bin/goblin --query "Staphylococcus aureus" --prefix saureus-name --limit 10 --force --compress
           cat saureus-name/goblin-summary.json
           echo "Accessions"
           bin/goblin --query test/accessions.txt --prefix saureus-accessions --force

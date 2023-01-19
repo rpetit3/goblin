@@ -210,6 +210,9 @@ Fu L, Niu B, Zhu Z, Wu S, Li W [CD-HIT: accelerated for clustering the next-gene
 __[ncbi-genome-download](https://github.com/kblin/ncbi-genome-download)__   
 Blin K [ncbi-genome-download: Scripts to download genomes from the NCBI FTP servers](https://github.com/kblin/ncbi-genome-download) (GitHub)  
 
+__[Pigz](https://zlib.net/pigz/)__  
+Adler M. [pigz: A parallel implementation of gzip for modern multi-processor, multi-core machines.](https://zlib.net/pigz/) _Jet Propulsion Laboratory_ (2015)  
+
 ## Author
 
 * Robert A. Petit III

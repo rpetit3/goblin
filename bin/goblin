@@ -35,7 +35,7 @@ def check_dependencies():
     from shutil import which
     exit_code = 0
     print(f'Checking dependencies...', file=sys.stderr)
-    for program in ['ncbi-genome-download', 'cd-hit', 'gzip']:
+    for program in ['ncbi-genome-download', 'cd-hit', 'pigz']:
         which_path = which(program)
         if which_path:
             print(f'Found {program} at {which_path}', file=sys.stderr)
@@ -57,10 +57,14 @@ def get_versions(as_string=False):
         'biopython': Bio.__version__,
         'cd-hit': execute("cd-hit -h | head -n 1 | sed 's/^.*====== CD-HIT version //;s/ (built on .*) ======//' ", skip_log=True)[0],
         'ncbi-genome-download': execute('ncbi-genome-download --version', skip_log=True)[0],
+        'pigz': execute('pigz --version', skip_log=True)[0].split()[1]
     }
 
     if as_string:
-        return f'goblin:{versions["goblin"]};biopython:{versions["biopython"]};cd-hit:{versions["cd-hit"]};ncbi-genome-download:{versions["ncbi-genome-download"]}'
+        version_string = []
+        for program, version in versions.items():
+            version_string.append(f'{program}:{version}')
+        return ';'.join(version_string)
     else:
         return versions
 
@@ -323,8 +327,8 @@ def goblin(query, prefix, assembly_level, is_taxid, limit, identity, overlap, ma
                 execute(f'rm -rf {workdir}/genomes')
                 if compress:
                     print("[italic]\nCompressing outputs...[/italic]")
-                    execute(f'gzip --best {workdir}/{prefix}.faa')
-                    execute(f'gzip --best {workdir}/goblin.log', skip_log=True)
+                    execute(f'pigz -p {cpus} --best {workdir}/{prefix}.faa')
+                    execute(f'pigz -p {cpus} --best {workdir}/goblin.log', skip_log=True)
 
             # Generate summary file
             d = {
