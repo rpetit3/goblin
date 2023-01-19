@@ -43,10 +43,10 @@ jobs:
         run: |
           echo "Tax ID"
           bin/goblin --query 1280 --prefix saureus-taxid --limit 10 --force
-          cat saureus-taxid/goblin-summary.txt
+          cat saureus-taxid/goblin-summary.json
           echo "Name"
           bin/goblin --query "Staphylococcus aureus" --prefix saureus-name --limit 10 --force
-          cat saureus-name/goblin-summary.txt
+          cat saureus-name/goblin-summary.json
           echo "Accessions"
           bin/goblin --query test/accessions.txt --prefix saureus-accessions --force
-          cat saureus-accessions/goblin-summary.txt
+          cat saureus-accessions/goblin-summary.json
