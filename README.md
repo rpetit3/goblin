@@ -193,7 +193,6 @@ __[goblin](https://github.com/rpetit3/pbptyper)__
 Petit III RA [goblin: Generate trusted prOteins to supplement BacteriaL annotatIoN](https://github.com/rpetit3/pbptyper) (GitHub)  
 
 __[Biopython](https://biopython.org/)__  
-Blin K [ncbi-genome-download: Scripts to download genomes from the NCBI FTP servers](https://github.com/kblin/ncbi-genome-download) (GitHub)  
 Cock PJA, Antao T, Chang JT, Chapman BA, Cox CJ, Dalke A, Friedberg I, Hamelryck T, Kauff F, Wilczynski B, de Hoon MJL [Biopython: freely available Python tools for computational molecular biology and bioinformatics.](https://doi.org/10.1093/bioinformatics/btp163) Bioinformatics , 25(11), 1422–1423. (2009)  
 
 __[CD-HIT-EST](https://github.com/weizhongli/cdhit)__  
