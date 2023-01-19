@@ -89,7 +89,7 @@ def download_genomes(query, assembly_level, outdir, limit, is_taxid, debug):
     if Path(query).is_file():
         # Got a file, copy it into the logs directory
         execute(f'cp {query} {accessions_file}')
-        total_query_hits = execute(f'wc -l {accessions_file}')
+        total_query_hits = execute(f'wc -l {accessions_file}')[0].split()[0]
     else:
         accessions = []
         final_accessions = []
@@ -316,6 +316,7 @@ def goblin(query, prefix, assembly_level, is_taxid, limit, identity, overlap, ma
                 print("[italic]\nCleaning up temporary files...[/italic]")
                 execute(f'rm -rf {workdir}/genomes')
                 if compress:
+                    print("[italic]\nCompressing outputs...[/italic]")
                     execute(f'gzip --best {workdir}/{prefix}.faa')
                     execute(f'gzip --best {workdir}/goblin.log', skip_log=True)
 

@@ -1,0 +1,98 @@
+Command: cp test/accessions.txt .//saureus-acc/ncbi-accessions.txt
+
+STDOUT
+
+STDERR
+
+Command: wc -l .//saureus-acc/ncbi-accessions.txt
+
+STDOUT
+10 .//saureus-acc/ncbi-accessions.txt
+
+STDERR
+
+Command: ncbi-genome-download bacteria -A .//saureus-acc/ncbi-accessions.txt -l complete -o .//saureus-acc/genomes -F genbank -r 10 -m .//saureus-acc/ncbi-metadata.txt
+
+STDOUT
+
+STDERR
+
+Command: find . -name "*.gbff.gz"
+
+STDOUT
+./genomes/refseq/bacteria/GCF_008244725.1/GCF_008244725.1_ASM824472v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_019669165.1/GCF_019669165.1_ASM1966916v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_019551375.1/GCF_019551375.1_ASM1955137v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_002209325.1/GCF_002209325.1_ASM220932v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_019551415.1/GCF_019551415.1_ASM1955141v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_003111745.1/GCF_003111745.1_ASM311174v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_024399375.1/GCF_024399375.1_ASM2439937v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_000815125.1/GCF_000815125.1_ASM81512v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_002000825.1/GCF_002000825.1_ASM200082v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_002633865.1/GCF_002633865.1_ASM263386v1_genomic.gbff.gz
+
+STDERR
+
+Command: cd-hit -i .//saureus-acc/genomes/full_cds.faa -o .//saureus-acc/genomes/saureus-acc.faa -s 0.8 -g 1 -c 0.9 -T 1 -M 0
+
+STDOUT
+================================================================
+Program: CD-HIT, V4.8.1 (+OpenMP), Aug 07 2022, 06:48:22
+Command: cd-hit -i .//saureus-acc/genomes/full_cds.faa -o
+         .//saureus-acc/genomes/saureus-acc.faa -s 0.8 -g 1 -c
+         0.9 -T 1 -M 0
+
+Started: Thu Jan 19 06:06:14 2023
+================================================================
+                            Output                              
+----------------------------------------------------------------
+total seq: 26984
+longest and shortest : 10624 and 15
+Total letters: 7855455
+Sequences have been sorted
+
+Approximated minimal memory consumption:
+Sequence        : 11M
+Buffer          : 1 X 18M = 18M
+Table           : 1 X 65M = 65M
+Miscellaneous   : 0M
+Total           : 96M
+
+Table limit with the given memory limit:
+Max number of representatives: 4000000
+Max number of word counting entries: 243812000
+
+comparing sequences from          0  to      26984
+....................    10000  finished       1242  clusters
+....................    20000  finished       2559  clusters
+......
+    26984  finished       3703  clusters
+
+Approximated maximum memory consumption: 104M
+writing new database
+writing clustering information
+program completed !
+
+Total CPU time 1.71
+
+STDERR
+
+Command: mv .//saureus-acc/genomes/saureus-acc.faa .//saureus-acc
+
+STDOUT
+
+STDERR
+
+Command: grep -H -c "^>" .//saureus-acc/saureus-acc.faa
+
+STDOUT
+.//saureus-acc/saureus-acc.faa:3703
+
+STDERR
+
+Command: rm -rf .//saureus-acc/genomes
+
+STDOUT
+
+STDERR
+
