@@ -30,7 +30,7 @@ and turn it into a stand alone tool. Thus, goblin was born.
 ## Quick Start
 
 ```{bash}
-goblin --query 1280 --prefix saureus --limit 10 --force --compress
+goblin --query 1280 --prefix saureus --limit 10
 Downloading genomes from NCBI...
 
 Parsing GenBank files...
@@ -39,19 +39,27 @@ Running CD-HIT...
 
 Cleaning up temporary files...
 
-Compressing outputs...
-
-Goblin Summary
-run_cmd: goblin --query 1280 --prefix saureus --limit 10 --force --compress
-run_date: 2023-01-18T07:25:57Z
-total_query_hits: 931
-total_genomes: 10
-total_cds: 27003
-total_hypothetical: 0
-total_pseudogenes: 800
-total_proteins: 26203
-total_clusters: 4072
-percent_reduced: 0.84
+                                         Goblin Summary
+┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ key                     ┃ value                                                               ┃
+┡━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+│ command                 │ goblin --query 1280 --prefix saureus --limit 10                     │
+│ date                    │ 2023-01-19T06:56:31Z                                                │
+│ versions                │ goblin:0.0.1;biopython:1.80;cd-hit:4.8.1;ncbi-genome-download:0.3.1 │
+│ total_query_hits        │ 931                                                                 │
+│ total_genomes           │ 10                                                                  │
+│ total_cds               │ 27634                                                               │
+│ total_hypothetical      │ 0                                                                   │
+│ total_pseudogenes       │ 797                                                                 │
+│ total_proteins          │ 26837                                                               │
+│ total_clusters          │ 4039                                                                │
+│ percent_reduced         │ 0.85                                                                │
+│ genome_size_min         │ 2746829                                                             │
+│ genome_size_median      │ 2837965                                                             │
+│ genome_size_mean        │ 2849240                                                             │
+│ genome_size_max         │ 3018303                                                             │
+│ genome_size_description │ Genome size values are based on 10 genomes                          │
+└─────────────────────────┴─────────────────────────────────────────────────────────────────────┘
 
 ls saureus/
 genome_size.json  goblin-summary.txt  goblin.log.gz  ncbi-accessions.txt  ncbi-metadata.txt  saureus.faa.gz
@@ -158,7 +166,8 @@ When the need arises, use these to figure out where issues might be happening.
 Filename | Description
 ---------|------------
 `<PREFIX>.faa.gz` | The final set of clustered proteins
-`goblin-summary.txt` | A summary of the run
+`goblin-summary.json` | A summary of the run in JSON format
+`goblin-summary.tsv` | A summary of the run in TSV format
 `goblin.log.gz` | Outputs from each of the commands executed
 `ncbi-accessions.txt` | The set of accessions that were downloaded and used
 `ncbi-metadata.txt` | Information about the accessions downloaded

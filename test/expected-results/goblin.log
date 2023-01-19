@@ -1,17 +1,942 @@
-Command: cp test/accessions.txt .//saureus-acc/ncbi-accessions.txt
+Command: ncbi-genome-download bacteria --species-taxids "1280" -l complete -F genbank -r 10 --dry-run
 
 STDOUT
+Considering the following 931 assemblies for download:
+GCF_000418345.1	Staphylococcus aureus	Bmb9393
+GCF_000597965.1	Staphylococcus aureus	502A
+GCF_000626615.2	Staphylococcus aureus	FDAARGOS_5
+GCF_000695215.1	Staphylococcus aureus	H-EMRSA-15
+GCF_000695875.1	Staphylococcus aureus	UA-S391_USA300
+GCF_000746505.1	Staphylococcus aureus	2395 USA500
+GCF_000756205.1	Staphylococcus aureus	ATCC 25923
+GCF_000769575.1	Staphylococcus aureus	Gv69
+GCF_000772025.1	Staphylococcus aureus	FORC_001
+GCF_000815045.1	Staphylococcus aureus	29b_MRSA
+GCF_000815085.1	Staphylococcus aureus	31b_MRSA
+GCF_000815125.1	Staphylococcus aureus	ATCC BAA1680
+GCF_000815165.1	Staphylococcus aureus	26b_MRSA
+GCF_000815205.1	Staphylococcus aureus	25b_MRSA
+GCF_000815245.1	Staphylococcus aureus	27b_MRSA
+GCF_000953255.1	Staphylococcus aureus	ILRI_Eymole1/1
+GCF_000969225.1	Staphylococcus aureus	FCFHV36
+GCF_001018645.2	Staphylococcus aureus	FDAARGOS_2
+GCF_001018655.2	Staphylococcus aureus	FDAARGOS_6
+GCF_001018685.2	Staphylococcus aureus	TCH 959
+GCF_001018725.2	Staphylococcus aureus	FDAARGOS_10
+GCF_001018735.2	Staphylococcus aureus	NRS137
+GCF_001018775.2	Staphylococcus aureus	NRS149
+GCF_001018805.1	Staphylococcus aureus	FDAARGOS_15
+GCF_001018835.2	Staphylococcus aureus	NRS271
+GCF_001018845.2	Staphylococcus aureus	NRS153
+GCF_001018915.2	Staphylococcus aureus	NRS133
+GCF_001018975.2	Staphylococcus aureus	NRS143
+GCF_001019125.2	Staphylococcus aureus	FDAARGOS_43
+GCF_001019205.2	Staphylococcus aureus	FDAARGOS_48
+GCF_001019255.2	Staphylococcus aureus	FDAARGOS_1
+GCF_001019275.2	Staphylococcus aureus	NRS107
+GCF_001019305.2	Staphylococcus aureus	NRS70
+GCF_001019395.2	Staphylococcus aureus	NRS484
+GCF_001019415.2	Staphylococcus aureus	NRS146
+GCF_001019435.2	Staphylococcus aureus	NRS1
+GCF_001019485.2	Staphylococcus aureus	NRS120
+GCF_001019495.2	Staphylococcus aureus	FDAARGOS_40
+GCF_001019535.2	Staphylococcus aureus	Mw2
+GCF_001019575.2	Staphylococcus aureus	HPV107
+GCF_001021875.1	Staphylococcus aureus	M121
+GCF_001021895.1	Staphylococcus aureus	CA15
+GCF_001027045.1	Staphylococcus aureus	RKI4
+GCF_001027105.1	Staphylococcus aureus	DSM 20231
+GCF_001045795.2	Staphylococcus aureus	CA12
+GCF_001045995.2	Staphylococcus aureus	HUV05
+GCF_001046095.2	Staphylococcus aureus	V2200
+GCF_001183705.3	Staphylococcus aureus	USA300_2014.C01
+GCF_001183725.2	Staphylococcus aureus	USA300_2014.C02
+GCF_001278745.1	Staphylococcus aureus	HOU1444-VR
+GCF_001281145.1	Staphylococcus aureus	SA564
+GCF_001296985.1	Staphylococcus aureus	GR2
+GCF_001298325.2	Staphylococcus aureus	BA01611
+GCF_001307235.1	Staphylococcus aureus	JS395
+GCF_001444345.1	Staphylococcus aureus	XQ
+GCF_001456215.1	Staphylococcus aureus	MS4
+GCF_001457495.1	Staphylococcus aureus	NCTC13435
+GCF_001465635.1	Staphylococcus aureus	RIVM1295
+GCF_001465675.1	Staphylococcus aureus	RIVM1607
+GCF_001465755.1	Staphylococcus aureus	RIVM3897
+GCF_001515665.1	Staphylococcus aureus	Gv51
+GCF_001515685.1	Staphylococcus aureus	Be62
+GCF_001515705.1	Staphylococcus aureus	Gv88
+GCF_001515745.1	Staphylococcus aureus	HC1340
+GCF_001515765.1	Staphylococcus aureus	HC1335
+GCF_001548295.1	Staphylococcus aureus	FDA209P
+GCF_001548415.1	Staphylococcus aureus	MI
+GCF_001549655.1	Staphylococcus aureus	TMUS2126
+GCF_001549675.1	Staphylococcus aureus	TMUS2134
+GCF_001558795.2	Staphylococcus aureus	FDAARGOS_159
+GCF_001580495.1	Staphylococcus aureus	FORC_012
+GCF_001580515.1	Staphylococcus aureus	UTSW MRSA 55
+GCF_001594205.1	Staphylococcus aureus	MCRF184
+GCF_001611325.1	Staphylococcus aureus	ST20130940
+GCF_001611345.1	Staphylococcus aureus	ST20130941
+GCF_001611365.1	Staphylococcus aureus	ST20130942
+GCF_001611385.1	Staphylococcus aureus	ST20130943
+GCF_001611405.1	Staphylococcus aureus	ST20130938
+GCF_001611425.1	Staphylococcus aureus	ST20130939
+GCF_001618305.1	Staphylococcus aureus	RIVM6519
+GCF_001640885.1	Staphylococcus aureus	ZJ5499
+GCF_001640905.1	Staphylococcus aureus	NCCP14558
+GCF_001640925.1	Staphylococcus aureus	NCCP14562
+GCF_001641025.1	Staphylococcus aureus	V521
+GCF_001656045.1	Staphylococcus aureus	08-02119
+GCF_001656075.1	Staphylococcus aureus	08-02300
+GCF_001717645.1	Staphylococcus aureus	5118.N
+GCF_001717665.1	Staphylococcus aureus	2148.N
+GCF_001717685.1	Staphylococcus aureus	1971.C01
+GCF_001717705.1	Staphylococcus aureus	1969.N
+GCF_001717725.1	Staphylococcus aureus	1625.C01
+GCF_001717975.2	Staphylococcus aureus	2148.C01
+GCF_001725965.1	Staphylococcus aureus	FORC_027
+GCF_001735655.2	Staphylococcus aureus	3020.C01
+GCF_001879545.1	Staphylococcus aureus	FORC_026
+GCF_001880265.1	Staphylococcus aureus	SA40TW
+GCF_001887075.1	Staphylococcus aureus	LA-MRSA ST398
+GCF_001900185.1	Staphylococcus aureus	HG001
+GCF_001956755.1	Staphylococcus aureus	SJTUF_J27
+GCF_001956815.1	Staphylococcus aureus	USA300_SUR1
+GCF_001975005.1	Staphylococcus aureus	UCI62
+GCF_001975045.1	Staphylococcus aureus	UCI 28
+GCF_001986135.1	Staphylococcus aureus	SR434
+GCF_002000565.1	Staphylococcus aureus	USA300-SUR9
+GCF_002000585.1	Staphylococcus aureus	USA300-SUR10
+GCF_002000605.1	Staphylococcus aureus	USA300-SUR11
+GCF_002000625.1	Staphylococcus aureus	USA300-SUR12
+GCF_002000645.1	Staphylococcus aureus	USA300-SUR13
+GCF_002000665.1	Staphylococcus aureus	USA300-SUR14
+GCF_002000685.1	Staphylococcus aureus	USA300-SUR15
+GCF_002000705.1	Staphylococcus aureus	USA300-SUR16
+GCF_002000725.1	Staphylococcus aureus	USA300-SUR17
+GCF_002000745.1	Staphylococcus aureus	USA300-SUR18
+GCF_002000765.1	Staphylococcus aureus	USA300-SUR19
+GCF_002000785.1	Staphylococcus aureus	USA300-SUR20
+GCF_002000805.1	Staphylococcus aureus	USA300-SUR21
+GCF_002000825.1	Staphylococcus aureus	USA300-SUR22
+GCF_002000845.1	Staphylococcus aureus	USA300-SUR23
+GCF_002000865.1	Staphylococcus aureus	USA300-SUR24
+GCF_002025125.1	Staphylococcus aureus	08S00974
+GCF_002025145.1	Staphylococcus aureus	ATCC 6538
+GCF_002085525.1	Staphylococcus aureus	JE2
+GCF_002088995.1	Staphylococcus aureus	C2406
+GCF_002089035.2	Staphylococcus aureus	293G
+GCF_002089055.1	Staphylococcus aureus	GD5
+GCF_002089075.2	Staphylococcus aureus	GD705
+GCF_002089095.2	Staphylococcus aureus	GD1677
+GCF_002089115.2	Staphylococcus aureus	GD1539
+GCF_002097595.2	Staphylococcus aureus	M92
+GCF_002140115.1	Staphylococcus aureus	FORC_039
+GCF_002202075.1	Staphylococcus aureus	Seattle 1945
+GCF_002202095.1	Staphylococcus aureus	Seattle 1945
+GCF_002204555.1	Staphylococcus aureus	ISU935
+GCF_002204575.1	Staphylococcus aureus	ISU926
+GCF_002209325.1	Staphylococcus aureus	FORC_045
+GCF_002214665.1	Staphylococcus aureus	FORC_040
+GCF_002310395.1	Staphylococcus aureus	Newman_D2C
+GCF_002355355.1	Staphylococcus aureus	OC8
+GCF_002356675.1	Staphylococcus aureus	JH4899
+GCF_002386245.1	Staphylococcus aureus	FDAARGOS_412
+GCF_002442975.1	Staphylococcus aureus	HZW450
+GCF_002633765.1	Staphylococcus aureus	CFSAN007835
+GCF_002633785.1	Staphylococcus aureus	CFSAN007847
+GCF_002633805.1	Staphylococcus aureus	CFSAN007850
+GCF_002633825.1	Staphylococcus aureus	CFSAN007851
+GCF_002633845.1	Staphylococcus aureus	CFSAN007883
+GCF_002633865.1	Staphylococcus aureus	CFSAN007894
+GCF_002786465.1	Staphylococcus aureus	EDCC5458
+GCF_002786535.1	Staphylococcus aureus	EDCC5464
+GCF_002795285.1	Staphylococcus aureus	USA400-0051
+GCF_002803885.1	Staphylococcus aureus	55-99-44
+GCF_002850395.1	Staphylococcus aureus	K17
+GCF_002850415.1	Staphylococcus aureus	K18
+GCF_002895385.1	Staphylococcus aureus	MRSA107
+GCF_002952015.1	Staphylococcus aureus	K5
+GCF_003010875.1	Staphylococcus aureus	FORC59
+GCF_003029645.1	Staphylococcus aureus	CFSAN064038
+GCF_003030065.1	Staphylococcus aureus	CFSAN018749
+GCF_003030085.1	Staphylococcus aureus	CFSAN064037
+GCF_003030225.1	Staphylococcus aureus	CFSAN018750
+GCF_003031285.1	Staphylococcus aureus	TF3198
+GCF_003031425.1	Staphylococcus aureus	CFSAN007896
+GCF_003031485.1	Staphylococcus aureus	CC5
+GCF_003073395.1	Staphylococcus aureus	CIT
+GCF_003073415.1	Staphylococcus aureus	CAR
+GCF_003073435.1	Staphylococcus aureus	OXLIM
+GCF_003073635.1	Staphylococcus aureus	AR466
+GCF_003073655.1	Staphylococcus aureus	AR465
+GCF_003073715.1	Staphylococcus aureus	AR461
+GCF_003073755.1	Staphylococcus aureus	AR464
+GCF_003073775.1	Staphylococcus aureus	AR462
+GCF_003111725.1	Staphylococcus aureus	SVH7513
+GCF_003111745.1	Staphylococcus aureus	PTDrAP2
+GCF_003184985.1	Staphylococcus aureus	IT1-S
+GCF_003185005.1	Staphylococcus aureus	IT4-R
+GCF_003186105.1	Staphylococcus aureus	MOK063
+GCF_003186125.1	Staphylococcus aureus	MOK042
+GCF_003193665.1	Staphylococcus aureus	AR_0472
+GCF_003193685.1	Staphylococcus aureus	AR_0223
+GCF_003193705.1	Staphylococcus aureus	AR_0219
+GCF_003193725.1	Staphylococcus aureus	AR_0216
+GCF_003193745.1	Staphylococcus aureus	AR_0470
+GCF_003193765.1	Staphylococcus aureus	AR_0471
+GCF_003193785.1	Staphylococcus aureus	AR_0473
+GCF_003193885.1	Staphylococcus aureus	AR_0467
+GCF_003193965.1	Staphylococcus aureus	AR_0225
+GCF_003194005.1	Staphylococcus aureus	AR_0469
+GCF_003194025.1	Staphylococcus aureus	AR_0215
+GCF_003194405.1	Staphylococcus aureus	CHU15-056
+GCF_003203595.1	Staphylococcus aureus	AR_0226
+GCF_003203615.1	Staphylococcus aureus	AR_0468
+GCF_003203635.1	Staphylococcus aureus	AR_0228
+GCF_003203655.1	Staphylococcus aureus	AR_0222
+GCF_003203675.1	Staphylococcus aureus	AR_0220
+GCF_003264775.1	Staphylococcus aureus	CMRSA-3
+GCF_003264815.1	Staphylococcus aureus	CMRSA-6
+GCF_003288395.1	Staphylococcus aureus	AR_475
+GCF_003330905.1	Staphylococcus aureus	AR_474
+GCF_003342735.1	Staphylococcus aureus	E16SA093
+GCF_003342775.1	Staphylococcus aureus	F17SA003
+GCF_003347055.1	Staphylococcus aureus	FORC_061
+GCF_003351925.1	Staphylococcus aureus	FORC_062
+GCF_003354545.1	Staphylococcus aureus	27
+GCF_003354565.1	Staphylococcus aureus	187
+GCF_003354585.1	Staphylococcus aureus	629
+GCF_003354605.1	Staphylococcus aureus	422
+GCF_003354625.1	Staphylococcus aureus	468
+GCF_003354645.1	Staphylococcus aureus	128
+GCF_003354665.1	Staphylococcus aureus	165
+GCF_003354685.1	Staphylococcus aureus	277
+GCF_003354705.1	Staphylococcus aureus	61
+GCF_003354725.1	Staphylococcus aureus	143
+GCF_003354745.1	Staphylococcus aureus	466
+GCF_003354765.1	Staphylococcus aureus	191
+GCF_003354785.1	Staphylococcus aureus	85
+GCF_003354805.1	Staphylococcus aureus	54
+GCF_003354865.1	Staphylococcus aureus	45
+GCF_003354885.1	Staphylococcus aureus	164
+GCF_003354905.1	Staphylococcus aureus	78
+GCF_003354925.1	Staphylococcus aureus	135
+GCF_003354945.1	Staphylococcus aureus	545
+GCF_003354965.1	Staphylococcus aureus	546
+GCF_003354985.1	Staphylococcus aureus	628
+GCF_003394105.1	Staphylococcus aureus	WCH-SK2
+GCF_003425545.1	Staphylococcus aureus	199
+GCF_003425835.1	Staphylococcus aureus	28
+GCF_003425885.1	Staphylococcus aureus	82
+GCF_003425915.1	Staphylococcus aureus	64
+GCF_003426145.1	Staphylococcus aureus	MOZ66
+GCF_003431365.1	Staphylococcus aureus	CFBR-105
+GCF_003432345.1	Staphylococcus aureus	NX-T55
+GCF_003432365.1	Staphylococcus aureus	QD-CD9
+GCF_003490125.1	Staphylococcus aureus	O17
+GCF_003573835.1	Staphylococcus aureus	JMUB3031
+GCF_003573855.1	Staphylococcus aureus	JMUB1273
+GCF_003595365.1	Staphylococcus aureus	USA300-SUR1
+GCF_003595385.1	Staphylococcus aureus	USA300-SUR2
+GCF_003595405.1	Staphylococcus aureus	USA300-SUR3
+GCF_003595425.1	Staphylococcus aureus	USA300-SUR4
+GCF_003595445.1	Staphylococcus aureus	USA300-SUR5
+GCF_003595465.1	Staphylococcus aureus	USA300-SUR6
+GCF_003595485.1	Staphylococcus aureus	USA300-SUR7
+GCF_003595505.1	Staphylococcus aureus	USA300-SUR8
+GCF_003609855.1	Staphylococcus aureus	JP02758
+GCF_003609895.1	Staphylococcus aureus	GN3
+GCF_003609915.1	Staphylococcus aureus	GN1
+GCF_003627835.1	Staphylococcus aureus	O326
+GCF_003827915.1	Staphylococcus aureus	FDAARGOS_504
+GCF_003855575.1	Staphylococcus aureus	80wphwpl_v1
+GCF_003944865.1	Staphylococcus aureus	80wphwpl
+GCF_003945405.1	Staphylococcus aureus	TUM9458
+GCF_003945425.1	Staphylococcus aureus	TUM9463
+GCF_003952625.1	Staphylococcus aureus	PMB 81-4
+GCF_003955945.1	Staphylococcus aureus	O267
+GCF_003957315.1	Staphylococcus aureus	PMB 64-1
+GCF_003991015.1	Staphylococcus aureus	USA 100
+GCF_004026165.1	Staphylococcus aureus	PCFH-226
+GCF_004026185.1	Staphylococcus aureus	PCFA-221
+GCF_004118995.1	Staphylococcus aureus	LAC
+GCF_004136235.1	Staphylococcus aureus	M51
+GCF_004136255.1	Staphylococcus aureus	M48
+GCF_004136655.1	Staphylococcus aureus	S57
+GCF_004153365.1	Staphylococcus aureus	VB31683
+GCF_004193875.1	Staphylococcus aureus	C3948
+GCF_004193895.1	Staphylococcus aureus	H489
+GCF_004208595.1	Staphylococcus aureus	592
+GCF_004421085.1	Staphylococcus aureus	04-002
+GCF_004614295.1	Staphylococcus aureus	C8879
+GCF_004614315.1	Staphylococcus aureus	JK3137
+GCF_004771335.1	Staphylococcus aureus	O217
+GCF_004771515.1	Staphylococcus aureus	B119
+GCF_004771975.1	Staphylococcus aureus	O408
+GCF_004772055.1	Staphylococcus aureus	O331
+GCF_004772175.1	Staphylococcus aureus	O55
+GCF_004772215.1	Staphylococcus aureus	O268
+GCF_004785995.1	Staphylococcus aureus	WCUH29
+GCF_004797195.1	Staphylococcus aureus	O82
+GCF_005705815.1	Staphylococcus aureus	Lr6
+GCF_005707015.1	Staphylococcus aureus	R50
+GCF_005707215.1	Staphylococcus aureus	Lr12
+GCF_005707335.1	Staphylococcus aureus	Lr3
+GCF_005885975.1	Staphylococcus aureus	Col52-A5
+GCF_005889995.1	Staphylococcus aureus	J01
+GCF_005890015.1	Staphylococcus aureus	JKD6004
+GCF_005890035.1	Staphylococcus aureus	D592-HR
+GCF_005931015.2	Staphylococcus aureus	GD487
+GCF_005931035.2	Staphylococcus aureus	GD1108
+GCF_005931055.2	Staphylococcus aureus	GD1696
+GCF_005954685.1	Staphylococcus aureus	D592
+GCF_006088835.1	Staphylococcus aureus	aureus
+GCF_006094915.1	Staphylococcus aureus	ATCC 12600
+GCF_006158985.1	Staphylococcus aureus	S15
+GCF_006364675.1	Staphylococcus aureus	FDAARGOS_773
+GCF_006364775.1	Staphylococcus aureus	FDAARGOS_766
+GCF_007185035.1	Staphylococcus aureus	JRA307
+GCF_007410625.1	Staphylococcus aureus	JKD6004-DR
+GCF_007726325.1	Staphylococcus aureus	B3-14B
+GCF_007726465.1	Staphylococcus aureus	B2-7A
+GCF_007726495.1	Staphylococcus aureus	B2-15A
+GCF_007726525.1	Staphylococcus aureus	B4-59C
+GCF_007726545.1	Staphylococcus aureus	B8-13D
+GCF_007726565.1	Staphylococcus aureus	B3-17D
+GCF_007813675.1	Staphylococcus aureus	13
+GCF_007826355.1	Staphylococcus aureus	NP66
+GCF_007954445.1	Staphylococcus aureus	BSN9S
+GCF_007954465.1	Staphylococcus aureus	BSN9R
+GCF_007998145.1	Staphylococcus aureus	X22
+GCF_008244705.1	Staphylococcus aureus	NRS384
+GCF_008244725.1	Staphylococcus aureus	NRS384-rpoB-H481N-NCV
+GCF_008244745.1	Staphylococcus aureus	NRS384-rpoB-H481N-SCV
+GCF_008329865.1	Staphylococcus aureus	CFSAN082782
+GCF_008329885.1	Staphylococcus aureus	CFSAN082781
+GCF_008330045.1	Staphylococcus aureus	VGC1
+GCF_008330585.1	Staphylococcus aureus	CFSAN082783
+GCF_008370815.1	Staphylococcus aureus	16445
+GCF_008462245.1	Staphylococcus aureus	GD1706
+GCF_008619075.1	Staphylococcus aureus	KUN1163
+GCF_008619235.1	Staphylococcus aureus	KUH140013
+GCF_008619415.1	Staphylococcus aureus	KUH140046
+GCF_008619795.1	Staphylococcus aureus	KUH140331
+GCF_008619935.1	Staphylococcus aureus	KUH180038
+GCF_008620055.1	Staphylococcus aureus	KUH180062
+GCF_008620175.1	Staphylococcus aureus	KUH180129
+GCF_008693765.1	Staphylococcus aureus	FDAARGOS_660
+GCF_009176765.1	Staphylococcus aureus	KG-03
+GCF_009176785.1	Staphylococcus aureus	KG-18
+GCF_009176875.1	Staphylococcus aureus	KG-22
+GCF_009650155.1	Staphylococcus aureus	CFSAN007894
+GCF_009684655.1	Staphylococcus aureus	ZY05
+GCF_009728755.1	Staphylococcus aureus	ST20130944
+GCF_009728775.1	Staphylococcus aureus	ST20130945
+GCF_009731595.1	Staphylococcus aureus	Tokyo12480
+GCF_009739675.1	Staphylococcus aureus	P2D8C1
+GCF_009739695.1	Staphylococcus aureus	P2D1C1
+GCF_009739715.1	Staphylococcus aureus	P2D15C1
+GCF_009739735.1	Staphylococcus aureus	P1D9C1
+GCF_009739755.1	Staphylococcus aureus	P1D8C2
+GCF_009739775.1	Staphylococcus aureus	P1D8C1
+GCF_009739795.1	Staphylococcus aureus	P1D7C1
+GCF_009739825.1	Staphylococcus aureus	P1D5C1
+GCF_009739845.1	Staphylococcus aureus	P1D1C1
+GCF_009739865.1	Staphylococcus aureus	P1D14C1
+GCF_009739885.1	Staphylococcus aureus	P1D12C1
+GCF_009740205.1	Staphylococcus aureus	P1D5C2
+GCF_009769095.1	Staphylococcus aureus	NCCP 16830
+GCF_009857055.1	Staphylococcus aureus	RJ1267
+GCF_009911815.1	Staphylococcus aureus	UP_1522
+GCF_009911835.1	Staphylococcus aureus	UP_1632
+GCF_009911855.1	Staphylococcus aureus	UP_1433
+GCF_009911895.1	Staphylococcus aureus	UP_967
+GCF_009911965.1	Staphylococcus aureus	UP_1395
+GCF_009912015.1	Staphylococcus aureus	UP_1500
+GCF_009912035.1	Staphylococcus aureus	UP_1572
+GCF_009912055.1	Staphylococcus aureus	UP_1612
+GCF_009912075.1	Staphylococcus aureus	UP_1654
+GCF_009912095.1	Staphylococcus aureus	UP_1209
+GCF_009912115.1	Staphylococcus aureus	UP_794
+GCF_009912155.1	Staphylococcus aureus	UP_1559
+GCF_009912195.1	Staphylococcus aureus	UP_1278
+GCF_009912255.1	Staphylococcus aureus	UP_926
+GCF_009912295.1	Staphylococcus aureus	UP_1539
+GCF_009912335.1	Staphylococcus aureus	UP_1313
+GCF_009912355.1	Staphylococcus aureus	UP_1239
+GCF_009912375.1	Staphylococcus aureus	UP_1073
+GCF_009912415.1	Staphylococcus aureus	UP_1484
+GCF_009912435.1	Staphylococcus aureus	UP_1452
+GCF_009912455.1	Staphylococcus aureus	UP_1108
+GCF_009912475.1	Staphylococcus aureus	UP_1352
+GCF_009912495.1	Staphylococcus aureus	UP_1186
+GCF_009912535.1	Staphylococcus aureus	UP_1150
+GCF_009912555.1	Staphylococcus aureus	UP_883
+GCF_009912595.1	Staphylococcus aureus	UP_1033
+GCF_009912615.1	Staphylococcus aureus	UP_830
+GCF_009912635.1	Staphylococcus aureus	UP_490
+GCF_009912655.1	Staphylococcus aureus	UP_996
+GCF_009912675.1	Staphylococcus aureus	UP_764
+GCF_009912695.1	Staphylococcus aureus	UP_719
+GCF_009912715.1	Staphylococcus aureus	UP_818
+GCF_009912735.1	Staphylococcus aureus	UP_678
+GCF_009912755.1	Staphylococcus aureus	UP_522
+GCF_009912775.1	Staphylococcus aureus	UP_644
+GCF_009912795.1	Staphylococcus aureus	UP_248
+GCF_009912815.1	Staphylococcus aureus	UP_378
+GCF_009912835.1	Staphylococcus aureus	UP_462
+GCF_009912855.1	Staphylococcus aureus	UP_620
+GCF_009912875.1	Staphylococcus aureus	UP_591
+GCF_009912895.1	Staphylococcus aureus	UP_1435
+GCF_009912915.1	Staphylococcus aureus	UP_403
+GCF_009912935.1	Staphylococcus aureus	UP_551
+GCF_009912955.1	Staphylococcus aureus	UP_426
+GCF_009912975.1	Staphylococcus aureus	UP_419
+GCF_009912995.1	Staphylococcus aureus	UP_774
+GCF_009913015.1	Staphylococcus aureus	UP_844
+GCF_009913035.1	Staphylococcus aureus	UP_274
+GCF_009913055.1	Staphylococcus aureus	UP_296
+GCF_009913075.1	Staphylococcus aureus	UP_322
+GCF_009913095.1	Staphylococcus aureus	UP_1405
+GCF_009913115.1	Staphylococcus aureus	UP_1097
+GCF_009913135.1	Staphylococcus aureus	UP_1525
+GCF_009913155.1	Staphylococcus aureus	UP_1322
+GCF_009913175.1	Staphylococcus aureus	UP_1106
+GCF_009913195.1	Staphylococcus aureus	UP_1442
+GCF_009913215.1	Staphylococcus aureus	UP_338
+GCF_009914455.1	Staphylococcus aureus	SAW1
+GCF_009937785.1	Staphylococcus aureus	UP_1591
+GCF_010669265.1	Staphylococcus aureus	SR153
+GCF_011032785.1	Staphylococcus aureus	SA1428
+GCF_011035105.1	Staphylococcus aureus	M2024
+GCF_012044215.1	Staphylococcus aureus	PMB179-1
+GCF_012044475.1	Staphylococcus aureus	PMB196-1
+GCF_012974825.1	Staphylococcus aureus	MJ163
+GCF_013003945.1	Staphylococcus aureus	HL20709
+GCF_013004085.1	Staphylococcus aureus	SA01
+GCF_013008375.1	Staphylococcus aureus	EDCC5398
+GCF_013046865.1	Staphylococcus aureus	Guangzhou-SAU749
+GCF_013046885.1	Staphylococcus aureus	Guangzhou-SAU071
+GCF_013187685.1	Staphylococcus aureus	Smith
+GCF_013305885.1	Staphylococcus aureus	14638
+GCF_013305905.1	Staphylococcus aureus	14640
+GCF_013305955.1	Staphylococcus aureus	14505
+GCF_013307005.2	Staphylococcus aureus	16405
+GCF_013307025.1	Staphylococcus aureus	14507
+GCF_013307065.1	Staphylococcus aureus	14732
+GCF_013307085.1	Staphylococcus aureus	MJ015
+GCF_013363895.1	Staphylococcus aureus	Dresden-275757
+GCF_013389715.1	Staphylococcus aureus	BLR-DV
+GCF_013394425.1	Staphylococcus aureus	TPS3156
+GCF_013415955.1	Staphylococcus aureus	08-028
+GCF_013467165.1	Staphylococcus aureus	WKZ-1
+GCF_013467405.1	Staphylococcus aureus	WKZ-2
+GCF_013836525.1	Staphylococcus aureus	110900
+GCF_013836745.1	Staphylococcus aureus	128254
+GCF_014696255.1	Staphylococcus aureus	NGA102
+GCF_014696415.1	Staphylococcus aureus	NGA84b
+GCF_014696535.1	Staphylococcus aureus	NGA76
+GCF_014696685.1	Staphylococcus aureus	NGA104a
+GCF_014696835.1	Staphylococcus aureus	NGA66a
+GCF_014696975.1	Staphylococcus aureus	NGA71
+GCF_015219885.1	Staphylococcus aureus	MRSA - AMRF 4
+GCF_015219905.1	Staphylococcus aureus	MRSA - AMRF 5
+GCF_015219925.1	Staphylococcus aureus	MRSA - AMRF 6
+GCF_015220695.1	Staphylococcus aureus	MRSA - AMRF 3
+GCF_015244035.1	Staphylococcus aureus	WH52
+GCF_015732455.1	Staphylococcus aureus	MSSA01
+GCF_015767475.1	Staphylococcus aureus	DG36
+GCF_015767495.1	Staphylococcus aureus	GDC6P096P
+GCF_015774815.1	Staphylococcus aureus	AR39_O1_merpol
+GCF_015774835.1	Staphylococcus aureus	JW31330_O1_dhc
+GCF_015774855.1	Staphylococcus aureus	JW_comp_novo
+GCF_015999445.1	Staphylococcus aureus	GDY8P96A
+GCF_016065215.1	Staphylococcus aureus	CC1153-MRSA
+GCF_016413705.1	Staphylococcus aureus	ncr_155_F133
+GCF_016413725.1	Staphylococcus aureus	nan_175_F371_ch
+GCF_016496025.1	Staphylococcus aureus	WH39
+GCF_016591995.1	Staphylococcus aureus	834
+GCF_016727585.1	Staphylococcus aureus	FDAARGOS_1086
+GCF_016889145.1	Staphylococcus aureus	FDAARGOS_1246
+GCF_016889945.1	Staphylococcus aureus	FDAARGOS_1245
+GCF_016894285.1	Staphylococcus aureus	014S_SA
+GCF_017088305.1	Staphylococcus aureus	WBG8287
+GCF_017088385.1	Staphylococcus aureus	WBG8366
+GCF_017161095.1	Staphylococcus aureus	MEI001
+GCF_017798245.1	Staphylococcus aureus	KZN
+GCF_018075265.1	Staphylococcus aureus	SA14+
+GCF_018093065.1	Staphylococcus aureus	CBS2016-05
+GCF_018093105.1	Staphylococcus aureus	PS/BAC/169/17/W
+GCF_018093205.1	Staphylococcus aureus	CI/BAC/25/13/W
+GCF_018093225.1	Staphylococcus aureus	PS/BAC/317/16/W
+GCF_018135565.1	Staphylococcus aureus	17Gst354
+GCF_018141385.1	Staphylococcus aureus	19/Msa0875
+GCF_018336515.1	Staphylococcus aureus	SR231
+GCF_018336535.1	Staphylococcus aureus	SR130
+GCF_018399115.1	Staphylococcus aureus	PNID0137
+GCF_018409145.1	Staphylococcus aureus	2007-13
+GCF_018968725.1	Staphylococcus aureus	SG511 Berlin
+GCF_018987325.1	Staphylococcus aureus	55-100-016
+GCF_018987345.1	Staphylococcus aureus	55-100-003
+GCF_018987365.1	Staphylococcus aureus	ST59
+GCF_019134615.1	Staphylococcus aureus	WHC09
+GCF_019134635.1	Staphylococcus aureus	WHC07
+GCF_019334585.1	Staphylococcus aureus	V8
+GCF_019550875.1	Staphylococcus aureus	HL18840
+GCF_019550945.1	Staphylococcus aureus	HL17064
+GCF_019551035.1	Staphylococcus aureus	HL18883
+GCF_019551095.1	Staphylococcus aureus	HL21008
+GCF_019551175.1	Staphylococcus aureus	HL17078
+GCF_019551235.1	Staphylococcus aureus	HL18380
+GCF_019551315.1	Staphylococcus aureus	HL18807
+GCF_019551355.1	Staphylococcus aureus	HL16278
+GCF_019551375.1	Staphylococcus aureus	HL18888
+GCF_019551415.1	Staphylococcus aureus	HL20835
+GCF_019603375.1	Staphylococcus aureus	HL23187
+GCF_019653615.1	Staphylococcus aureus	RGB-095930
+GCF_019669165.1	Staphylococcus aureus	THI2018-120
+GCF_019669245.1	Staphylococcus aureus	N1195
+GCF_019669345.1	Staphylococcus aureus	BDH17
+GCF_019669385.1	Staphylococcus aureus	S36
+GCF_019738975.1	Staphylococcus aureus	SQL1
+GCF_019915405.1	Staphylococcus aureus	SCAID OTT1-2021 (597/2)
+GCF_019915425.1	Staphylococcus aureus	SCAID WND1-2021 (598)
+GCF_019915585.1	Staphylococcus aureus	HL24830
+GCF_020003145.1	Staphylococcus aureus	UMCG578
+GCF_020003165.1	Staphylococcus aureus	NL1
+GCF_020034535.1	Staphylococcus aureus	HL25274
+GCF_020042725.1	Staphylococcus aureus	DC.RB_015
+GCF_020097755.1	Staphylococcus aureus	HL25870
+GCF_020150915.1	Staphylococcus aureus	MR254
+GCF_020177155.3	Staphylococcus aureus	SauR3
+GCF_020386595.1	Staphylococcus aureus	N6
+GCF_020388075.1	Staphylococcus aureus	N5
+GCF_020388095.1	Staphylococcus aureus	N4
+GCF_020388115.1	Staphylococcus aureus	L6
+GCF_020388135.1	Staphylococcus aureus	L5
+GCF_020388155.1	Staphylococcus aureus	L4
+GCF_020388175.1	Staphylococcus aureus	AC6
+GCF_020388195.1	Staphylococcus aureus	AC5
+GCF_020388215.1	Staphylococcus aureus	AC4
+GCF_020388235.1	Staphylococcus aureus	372
+GCF_020388255.1	Staphylococcus aureus	371
+GCF_020388275.1	Staphylococcus aureus	370
+GCF_020388295.1	Staphylococcus aureus	367
+GCF_020388315.1	Staphylococcus aureus	366
+GCF_020388335.1	Staphylococcus aureus	365
+GCF_020388355.1	Staphylococcus aureus	360
+GCF_020388395.1	Staphylococcus aureus	359
+GCF_020388555.1	Staphylococcus aureus	358
+GCF_020388655.1	Staphylococcus aureus	357
+GCF_020388675.1	Staphylococcus aureus	356
+GCF_020388695.1	Staphylococcus aureus	355
+GCF_020388715.1	Staphylococcus aureus	334
+GCF_020388735.1	Staphylococcus aureus	333
+GCF_020388765.1	Staphylococcus aureus	332
+GCF_020388785.1	Staphylococcus aureus	329
+GCF_020388805.1	Staphylococcus aureus	328
+GCF_020388825.1	Staphylococcus aureus	327
+GCF_020388845.1	Staphylococcus aureus	324
+GCF_020388885.1	Staphylococcus aureus	322
+GCF_020388905.1	Staphylococcus aureus	319
+GCF_020388925.1	Staphylococcus aureus	318
+GCF_020388965.1	Staphylococcus aureus	282
+GCF_020388985.1	Staphylococcus aureus	281
+GCF_020389005.1	Staphylococcus aureus	280
+GCF_020389025.2	Staphylococcus aureus	278
+GCF_020389165.1	Staphylococcus aureus	277
+GCF_020389265.1	Staphylococcus aureus	276
+GCF_020389325.1	Staphylococcus aureus	202
+GCF_020389425.1	Staphylococcus aureus	201
+GCF_020389445.1	Staphylococcus aureus	200
+GCF_020389485.1	Staphylococcus aureus	198
+GCF_020389505.1	Staphylococcus aureus	197
+GCF_020389525.1	Staphylococcus aureus	196
+GCF_020389545.1	Staphylococcus aureus	195
+GCF_020389565.1	Staphylococcus aureus	194
+GCF_020526105.1	Staphylococcus aureus	GS426
+GCF_020702135.2	Staphylococcus aureus	0316-H-5A
+GCF_020702515.2	Staphylococcus aureus	S36
+GCF_020702535.2	Staphylococcus aureus	JL42
+GCF_020702545.2	Staphylococcus aureus	0610-H-2A
+GCF_020702575.2	Staphylococcus aureus	S82
+GCF_020702585.2	Staphylococcus aureus	0213-M-4A
+GCF_020702615.2	Staphylococcus aureus	JL28
+GCF_020886635.1	Staphylococcus aureus	SA23-1
+GCF_020887155.1	Staphylococcus aureus	TPS5614
+GCF_020887215.1	Staphylococcus aureus	TPS6281
+GCF_020889645.1	Staphylococcus aureus	CC49/ST49-MSSA
+GCF_020889665.1	Staphylococcus aureus	CC1956/ST4614-MSSA
+GCF_020985245.1	Staphylococcus aureus	Newman NM-CQ
+GCF_021172825.1	Staphylococcus aureus	UNC_SaCF35
+GCF_021172845.1	Staphylococcus aureus	UNC_SaCF36
+GCF_021172865.1	Staphylococcus aureus	UNC_SaCF30
+GCF_021172885.1	Staphylococcus aureus	UNC_SaCF18
+GCF_021172905.1	Staphylococcus aureus	UNC_SaCF13
+GCF_021172925.1	Staphylococcus aureus	UNC_SaCF11
+GCF_021172945.1	Staphylococcus aureus	UNC_SaCF07
+GCF_021249285.1	Staphylococcus aureus	E1185_IV_ST12
+GCF_021390135.1	Staphylococcus aureus	RN6390
+GCF_021491715.1	Staphylococcus aureus	SAUR_BFS62
+GCF_021491735.1	Staphylococcus aureus	SAUR_BFS16
+GCF_021491775.1	Staphylococcus aureus	SAUR_BFS2
+GCF_021491835.1	Staphylococcus aureus	SAUR_BFS11
+GCF_021491895.1	Staphylococcus aureus	SAUR_BFS12
+GCF_021513355.1	Staphylococcus aureus	NCCP11854
+GCF_021725475.1	Staphylococcus aureus	ATR-20003
+GCF_021869805.1	Staphylococcus aureus	Patient 14, Isolate 02
+GCF_022163365.1	Staphylococcus aureus	MN8
+GCF_022163485.1	Staphylococcus aureus	FRI-1169
+GCF_022221525.1	Staphylococcus aureus	NT_8
+GCF_022221545.1	Staphylococcus aureus	NV_1
+GCF_022221565.1	Staphylococcus aureus	NT_611
+GCF_022226975.1	Staphylococcus aureus	USA600
+GCF_022226995.1	Staphylococcus aureus	USA300
+GCF_022369535.1	Staphylococcus aureus	NAS_OP_163
+GCF_022369595.1	Staphylococcus aureus	NAS_OP_133
+GCF_022369695.1	Staphylococcus aureus	NAS_OP_132
+GCF_022385275.1	Staphylococcus aureus	SYN
+GCF_022404575.1	Staphylococcus aureus	NAS_OP_101
+GCF_022404595.1	Staphylococcus aureus	NAS_OP_071
+GCF_022404615.1	Staphylococcus aureus	NAS_OP_063
+GCF_022404635.1	Staphylococcus aureus	NAS_OP_043
+GCF_022404655.1	Staphylococcus aureus	NAS_OP_026
+GCF_022404675.1	Staphylococcus aureus	NAS_OP_017
+GCF_022404695.1	Staphylococcus aureus	NAS_NP_164
+GCF_022404715.1	Staphylococcus aureus	NAS_NP_161
+GCF_022404735.1	Staphylococcus aureus	NAS_NP_103
+GCF_022404755.1	Staphylococcus aureus	NAS_AN_275
+GCF_022404775.1	Staphylococcus aureus	NAS_AN_270
+GCF_022405055.1	Staphylococcus aureus	NAS_AN_265
+GCF_022405075.1	Staphylococcus aureus	NAS_AN_261
+GCF_022405145.1	Staphylococcus aureus	NAS_AN_260
+GCF_022405185.1	Staphylococcus aureus	NAS_AN_250
+GCF_022405205.1	Staphylococcus aureus	NAS_AN_233
+GCF_022405235.1	Staphylococcus aureus	NAS_AN_206
+GCF_022405255.1	Staphylococcus aureus	NAS_AN_203
+GCF_022405275.1	Staphylococcus aureus	NAS_AN_184
+GCF_022405295.1	Staphylococcus aureus	NAS_AN_157
+GCF_022405315.1	Staphylococcus aureus	NAS_AN_152
+GCF_022405335.1	Staphylococcus aureus	NAS_AN_130
+GCF_022405355.1	Staphylococcus aureus	NAS_AN_123
+GCF_022405375.1	Staphylococcus aureus	NAS_AN_115
+GCF_022405395.1	Staphylococcus aureus	NAS_AN_111
+GCF_022405415.1	Staphylococcus aureus	NAS_AN_109
+GCF_022405435.1	Staphylococcus aureus	NAS_AN_099
+GCF_022405455.1	Staphylococcus aureus	NAS_AN_079
+GCF_022405475.1	Staphylococcus aureus	NAS_AN_076
+GCF_022405495.1	Staphylococcus aureus	NAS_AN_068
+GCF_022405515.1	Staphylococcus aureus	NAS_AN_050
+GCF_022405535.1	Staphylococcus aureus	NAS_AN_047
+GCF_022405555.1	Staphylococcus aureus	NAS_AN_044
+GCF_022405575.1	Staphylococcus aureus	NAS_AN_036
+GCF_022405595.1	Staphylococcus aureus	NAS_AN_009
+GCF_022405615.1	Staphylococcus aureus	NAS_AN_005
+GCF_022405655.1	Staphylococcus aureus	NAS_OP_154
+GCF_022405675.1	Staphylococcus aureus	NAS_OP_143
+GCF_022405735.1	Staphylococcus aureus	NAS_OP_107
+GCF_022405755.1	Staphylococcus aureus	NAS_OP_098
+GCF_022405775.1	Staphylococcus aureus	NAS_OP_056
+GCF_022405795.1	Staphylococcus aureus	NAS_OP_052
+GCF_022405815.1	Staphylococcus aureus	NAS_NP_229
+GCF_022405835.1	Staphylococcus aureus	NAS_NP_209
+GCF_022405855.1	Staphylococcus aureus	NAS_NP_198
+GCF_022405875.1	Staphylococcus aureus	NAS_NP_181
+GCF_022405895.1	Staphylococcus aureus	NAS_AN_247
+GCF_022405915.1	Staphylococcus aureus	NAS_AN_239
+GCF_022405935.1	Staphylococcus aureus	NAS_AN_205
+GCF_022405955.1	Staphylococcus aureus	NAS_AN_204
+GCF_022405975.1	Staphylococcus aureus	NAS_AN_181
+GCF_022405995.1	Staphylococcus aureus	NAS_AN_176
+GCF_022406015.1	Staphylococcus aureus	NAS_AN_175
+GCF_022406035.1	Staphylococcus aureus	NAS_AN_150
+GCF_022406055.1	Staphylococcus aureus	NAS_AN_149
+GCF_022406075.1	Staphylococcus aureus	NAS_AN_143
+GCF_022406125.1	Staphylococcus aureus	NAS_AN_136
+GCF_022406315.1	Staphylococcus aureus	NAS_AN_023
+GCF_022406435.1	Staphylococcus aureus	NAS_AN_016
+GCF_022406555.1	Staphylococcus aureus	NAS_AN_003
+GCF_022406675.1	Staphylococcus aureus	2868B2
+GCF_022406795.1	Staphylococcus aureus	NAS_AN_212
+GCF_022493095.1	Staphylococcus aureus	NAS_AN_285
+GCF_022494545.1	Staphylococcus aureus	199
+GCF_022494565.1	Staphylococcus aureus	697
+GCF_022532145.1	Staphylococcus aureus	GY8
+GCF_022682325.1	Staphylococcus aureus	697R
+GCF_022691325.1	Staphylococcus aureus	VMRSA-WC062
+GCF_022691345.1	Staphylococcus aureus	VMRSA-WC052
+GCF_022691365.1	Staphylococcus aureus	MRSA-WC101
+GCF_022691385.1	Staphylococcus aureus	MRSA-WC090
+GCF_022691405.1	Staphylococcus aureus	MRSA-WC061
+GCF_022691425.1	Staphylococcus aureus	MRSA-WC000
+GCF_022693165.1	Staphylococcus aureus	VMRSA-WC123
+GCF_022693185.1	Staphylococcus aureus	VMRSA-WC121
+GCF_022693205.1	Staphylococcus aureus	VRMSSA-WC113
+GCF_022693225.1	Staphylococcus aureus	VRMSSA-WC111
+GCF_022693245.1	Staphylococcus aureus	VMRSA-WC102
+GCF_022693265.1	Staphylococcus aureus	VMRSA-WC083
+GCF_022693285.1	Staphylococcus aureus	VMRSA-WC082
+GCF_022693305.1	Staphylococcus aureus	VMRSA-WC081
+GCF_022693325.1	Staphylococcus aureus	VMRSA-WC071
+GCF_022699245.1	Staphylococcus aureus	WA121-2010_15611
+GCF_022699265.1	Staphylococcus aureus	WA121-2021_16354
+GCF_022699285.1	Staphylococcus aureus	WA121-2021_15363
+GCF_022809795.1	Staphylococcus aureus	N10CSA27
+GCF_022832755.1	Staphylococcus aureus	NY2491
+GCF_022832775.1	Staphylococcus aureus	ATCC 29213
+GCF_022832835.1	Staphylococcus aureus	NY2010
+GCF_022869625.1	Staphylococcus aureus	PartF-Saureus-RM8376
+GCF_022870005.1	Staphylococcus aureus	PartE-Saureus-RM8376
+GCF_022870465.1	Staphylococcus aureus	ATCC 29213
+GCF_022870625.1	Staphylococcus aureus	TCH32767
+GCF_023170025.1	Staphylococcus aureus	JP025
+GCF_023170045.1	Staphylococcus aureus	JICS127
+GCF_023223475.1	Staphylococcus aureus	P5
+GCF_023278065.1	Staphylococcus aureus	SH1000
+GCF_023373745.1	Staphylococcus aureus	N12HSA28
+GCF_023571465.1	Staphylococcus aureus	V40
+GCF_023657535.1	Staphylococcus aureus	M0
+GCF_023657555.1	Staphylococcus aureus	N4
+GCF_023657575.1	Staphylococcus aureus	M4
+GCF_023658665.1	Staphylococcus aureus	494
+GCF_024172245.1	Staphylococcus aureus	MRSA1369
+GCF_024205325.1	Staphylococcus aureus	N09CSA16
+GCF_024220055.1	Staphylococcus aureus	RMSA24
+GCF_024296845.1	Staphylococcus aureus	MN8
+GCF_024363305.1	Staphylococcus aureus	59458
+GCF_024363325.1	Staphylococcus aureus	59482
+GCF_024363345.1	Staphylococcus aureus	59553
+GCF_024363365.1	Staphylococcus aureus	59574
+GCF_024363385.1	Staphylococcus aureus	59621
+GCF_024363445.1	Staphylococcus aureus	59691
+GCF_024363465.1	Staphylococcus aureus	59709
+GCF_024363485.1	Staphylococcus aureus	59731
+GCF_024363505.1	Staphylococcus aureus	59736
+GCF_024399355.1	Staphylococcus aureus	Sta2021010
+GCF_024399375.1	Staphylococcus aureus	Sta2021027
+GCF_024612055.1	Staphylococcus aureus	UMCG579
+GCF_024734775.1	Staphylococcus aureus	SCAID OTT1-2022 (150)
+GCF_024741355.1	Staphylococcus aureus	39-B-49
+GCF_024741375.1	Staphylococcus aureus	32-T-13
+GCF_024741395.1	Staphylococcus aureus	30-P-10
+GCF_024741415.1	Staphylococcus aureus	28-G-I
+GCF_024741435.1	Staphylococcus aureus	26-G-G
+GCF_024741455.1	Staphylococcus aureus	18-H-62
+GCF_024741475.1	Staphylococcus aureus	15-G-54
+GCF_024741495.1	Staphylococcus aureus	12-G-51
+GCF_024741515.1	Staphylococcus aureus	07-G-D
+GCF_024741535.1	Staphylococcus aureus	03-RR-88
+GCF_024741555.1	Staphylococcus aureus	16CS0212
+GCF_024741575.1	Staphylococcus aureus	40-B-50
+GCF_024741595.1	Staphylococcus aureus	29-P-01
+GCF_024741615.1	Staphylococcus aureus	17-H-61
+GCF_024741635.1	Staphylococcus aureus	13-G-52
+GCF_024741655.1	Staphylococcus aureus	09-G-F
+GCF_024741675.1	Staphylococcus aureus	08-G-E
+GCF_024741695.1	Staphylococcus aureus	05-RR-90
+GCF_024741715.1	Staphylococcus aureus	01-RR-86
+GCF_024741735.1	Staphylococcus aureus	16CS0209
+GCF_024741775.1	Staphylococcus aureus	27-G-H
+GCF_024925485.1	Staphylococcus aureus	NRL 02/947
+GCF_025152705.1	Staphylococcus aureus	0831
+GCF_025232045.1	Staphylococcus aureus	R3-8
+GCF_025259685.1	Staphylococcus aureus	TCH32929
+GCF_025398055.1	Staphylococcus aureus	SA2107
+GCF_025558945.1	Staphylococcus aureus	IVB6252
+GCF_025558965.1	Staphylococcus aureus	IVB6250
+GCF_025559005.1	Staphylococcus aureus	IVB6249
+GCF_025559045.1	Staphylococcus aureus	IVB6248
+GCF_025559085.1	Staphylococcus aureus	IVB6243
+GCF_025559125.1	Staphylococcus aureus	IVB6242
+GCF_025559165.1	Staphylococcus aureus	IVB6239
+GCF_025559225.1	Staphylococcus aureus	IVB6232
+GCF_025559265.1	Staphylococcus aureus	IVB6221
+GCF_025559325.1	Staphylococcus aureus	IVB6215
+GCF_025559405.1	Staphylococcus aureus	IVB6202
+GCF_025559465.1	Staphylococcus aureus	IVB6201
+GCF_025559525.1	Staphylococcus aureus	IVB6196
+GCF_025559565.1	Staphylococcus aureus	IVB6195
+GCF_025559585.1	Staphylococcus aureus	IVB6191
+GCF_025559605.1	Staphylococcus aureus	IVB6185
+GCF_025559625.1	Staphylococcus aureus	IVB6173
+GCF_025559645.1	Staphylococcus aureus	IVB6172
+GCF_025559665.1	Staphylococcus aureus	IVB6170
+GCF_025559685.1	Staphylococcus aureus	IVB6169
+GCF_025559705.1	Staphylococcus aureus	IVB6168
+GCF_025559725.1	Staphylococcus aureus	IVB6167
+GCF_025559745.1	Staphylococcus aureus	IVB6166
+GCF_025559765.1	Staphylococcus aureus	IVB6165
+GCF_025559785.1	Staphylococcus aureus	IVB6164
+GCF_025559805.1	Staphylococcus aureus	IVB6163
+GCF_025560785.1	Staphylococcus aureus	IVB6159
+GCF_025560805.1	Staphylococcus aureus	IVB6158
+GCF_025560825.1	Staphylococcus aureus	IVB6155
+GCF_025561585.1	Staphylococcus aureus	IVB6171
+GCF_025561605.1	Staphylococcus aureus	IVB6157
+GCF_025561625.1	Staphylococcus aureus	IVB6156
+GCF_025561645.1	Staphylococcus aureus	IVB6154
+GCF_025643635.1	Staphylococcus aureus	JDFM SA01
+GCF_026167725.1	Staphylococcus aureus	DSM 20231-Res2
+GCF_026167765.1	Staphylococcus aureus	DSM 20231
+GCF_026546985.1	Staphylococcus aureus	RIVM_M085090
+GCF_026547005.1	Staphylococcus aureus	RIVM_M087195
+GCF_026547035.1	Staphylococcus aureus	RIVM_M084986
+GCF_026547055.1	Staphylococcus aureus	RIVM_M084526
+GCF_026547075.1	Staphylococcus aureus	RIVM_M083782
+GCF_026547095.1	Staphylococcus aureus	RIVM_M047916
+GCF_026547145.1	Staphylococcus aureus	RIVM_M047065
+GCF_026547185.1	Staphylococcus aureus	RIVM_M044329
+GCF_026625205.1	Staphylococcus aureus	Galio
+GCF_026625225.1	Staphylococcus aureus	Ryze
+GCF_026625245.1	Staphylococcus aureus	Orianna
+GCF_026625265.1	Staphylococcus aureus	Zed
+GCF_026625285.1	Staphylococcus aureus	Azir
+GCF_026625305.1	Staphylococcus aureus	Taliyah
+GCF_026625325.1	Staphylococcus aureus	Syndra
+GCF_026625345.1	Staphylococcus aureus	Zoe
+GCF_026625365.1	Staphylococcus aureus	Akali
+GCF_026625385.1	Staphylococcus aureus	Zilean
+GCF_026625405.1	Staphylococcus aureus	Gwen
+GCF_026625445.1	Staphylococcus aureus	Seraphine
+GCF_026625465.1	Staphylococcus aureus	LeBlanc
+GCF_026625485.1	Staphylococcus aureus	Sett
+GCF_026625505.1	Staphylococcus aureus	Ahri
+GCF_026625525.1	Staphylococcus aureus	Viktor
+GCF_026625545.1	Staphylococcus aureus	Fizz
+GCF_026625925.1	Staphylococcus aureus	BIAI 117
+GCF_026636215.1	Staphylococcus aureus	BIAI 158
+GCF_900004855.1	Staphylococcus aureus	BB155
+GCF_900017775.1	Staphylococcus aureus	NZAK3
+GCF_900092595.1	Staphylococcus aureus	Sa_Newman_UoM
+GCF_900096745.1	Staphylococcus aureus	AUS0325
+GCF_900129335.1	Staphylococcus aureus	Clinical isolate
+GCF_900323905.1	Staphylococcus aureus	24117-WT
+GCF_900323925.1	Staphylococcus aureus	1549-WT
+GCF_900323955.1	Staphylococcus aureus	1549-REV
+GCF_900323965.1	Staphylococcus aureus	1549-SCV
+GCF_900324045.1	Staphylococcus aureus	24117-REV
+GCF_900324065.1	Staphylococcus aureus	24117-SCV
+GCF_900324205.1	Staphylococcus aureus	1_1439
+GCF_900324215.1	Staphylococcus aureus	3_LA_115
+GCF_900324225.1	Staphylococcus aureus	7_4623
+GCF_900324235.1	Staphylococcus aureus	5_3949
+GCF_900324245.1	Staphylococcus aureus	8_LA_272
+GCF_900324255.1	Staphylococcus aureus	2_LA_86
+GCF_900324265.1	Staphylococcus aureus	9_LA_281
+GCF_900324275.1	Staphylococcus aureus	6_LA_232
+GCF_900324285.1	Staphylococcus aureus	4_LA_208
+GCF_900324295.1	Staphylococcus aureus	16_LA_309
+GCF_900324305.1	Staphylococcus aureus	13_LA_301
+GCF_900324315.1	Staphylococcus aureus	12_LA_293
+GCF_900324325.1	Staphylococcus aureus	14_5418
+GCF_900324335.1	Staphylococcus aureus	15_LA_305
+GCF_900324345.1	Staphylococcus aureus	17_LA_343
+GCF_900324355.1	Staphylococcus aureus	10_5235
+GCF_900324365.1	Staphylococcus aureus	19_LA_388
+GCF_900324385.1	Staphylococcus aureus	20_LA_415
+GCF_900324405.1	Staphylococcus aureus	21_LA_436
+GCF_900324415.1	Staphylococcus aureus	22_LA_562
+GCF_900474525.1	Staphylococcus aureus	NCTC13394
+GCF_900474535.1	Staphylococcus aureus	NCTC7485
+GCF_900474555.1	Staphylococcus aureus	NCTC13137
+GCF_900474565.1	Staphylococcus aureus	NCTC8726
+GCF_900474575.1	Staphylococcus aureus	NCTC9944
+GCF_900474665.1	Staphylococcus aureus	NCTC9752
+GCF_900474675.1	Staphylococcus aureus	NCTC3761
+GCF_900474695.1	Staphylococcus aureus	NCTC5663
+GCF_900474715.1	Staphylococcus aureus	NCTC6136
+GCF_900474725.1	Staphylococcus aureus	NCTC13140
+GCF_900474735.1	Staphylococcus aureus	NCTC13395
+GCF_900474755.1	Staphylococcus aureus	NCTC10344
+GCF_900475055.1	Staphylococcus aureus	NCTC11940
+GCF_900478245.1	Staphylococcus aureus	NCTC13277
+GCF_900607245.1	Staphylococcus aureus	JKD6009
+GCF_900607255.1	Staphylococcus aureus	BPH2019
+GCF_900607265.1	Staphylococcus aureus	BPH2003
+GCF_900607275.1	Staphylococcus aureus	BPH2070
+GCF_900607285.1	Staphylococcus aureus	BPH3244
+GCF_900607295.1	Staphylococcus aureus	BPH2869
+GCF_900607305.1	Staphylococcus aureus	BPH2056
+GCF_900620215.1	Staphylococcus aureus	BPH2760
+GCF_900620225.1	Staphylococcus aureus	BPH2819
+GCF_900620235.1	Staphylococcus aureus	BPH2900
+GCF_900620245.1	Staphylococcus aureus	BPH2947
+GCF_900620255.1	Staphylococcus aureus	BPH2986
+GCF_900635095.1	Staphylococcus aureus	NCTC8317
+GCF_900635245.1	Staphylococcus aureus	NCTC13142
+GCF_900635265.1	Staphylococcus aureus	NCTC12233
+GCF_900635285.1	Staphylococcus aureus	NCTC7121
+GCF_900635305.1	Staphylococcus aureus	NCTC4137
+GCF_900635315.1	Staphylococcus aureus	NCTC9555
+GCF_900635335.1	Staphylococcus aureus	NCTC11965
+GCF_900635505.1	Staphylococcus aureus	NCTC4163
+GCF_900635905.1	Staphylococcus aureus	NCTC13616
+GCF_900636335.1	Staphylococcus aureus	NCTC7988
+GCF_900636695.1	Staphylococcus aureus	NCTC1803
+GCF_900637155.1	Staphylococcus aureus	NCTC13811
+GCF_903932595.1	Staphylococcus aureus	P3.1
+GCF_903932605.1	Staphylococcus aureus	HU-14
+GCF_947034825.1	Staphylococcus aureus	ST20190863
+GCF_000013425.1	Staphylococcus aureus subsp. aureus NCTC 8325	NCTC 8325
+GCF_900475245.1	Staphylococcus aureus subsp. aureus NCTC 8325	NCTC8325
+GCF_000012045.1	Staphylococcus aureus subsp. aureus COL	COL
+GCF_000009665.1	Staphylococcus aureus subsp. aureus Mu50	Mu50
+GCF_000009645.1	Staphylococcus aureus subsp. aureus N315	N315
+GCF_000011265.1	Staphylococcus aureus subsp. aureus MW2	MW2
+GCF_000009005.1	Staphylococcus aureus RF122	RF122
+GCF_000011505.1	Staphylococcus aureus subsp. aureus MRSA252	MRSA252
+GCF_000011525.1	Staphylococcus aureus subsp. aureus MSSA476	MSSA476
+GCF_000016805.1	Staphylococcus aureus subsp. aureus JH9	JH9
+GCF_000010445.1	Staphylococcus aureus subsp. aureus Mu3	Mu3
+GCF_000010465.1	Staphylococcus aureus subsp. aureus str. Newman	Newman
+GCF_002310435.1	Staphylococcus aureus subsp. aureus str. Newman	NYU_Newman
+GCF_000013465.1	Staphylococcus aureus subsp. aureus USA300_FPR3757	FPR3757
+GCF_000017085.1	Staphylococcus aureus subsp. aureus USA300_TCH1516	TCH1516
+GCF_000009585.1	Staphylococcus aureus subsp. aureus ST398	type strain:ST398
+GCF_020881895.1	Staphylococcus aureus subsp. aureus ST398	2012-3
+GCF_000145595.1	Staphylococcus aureus subsp. aureus str. JKD6008	JKD6008
+GCF_000159535.2	Staphylococcus aureus subsp. aureus TCH60	TCH60
+GCF_018732165.1	Staphylococcus aureus subsp. aureus RN4220	RN4220
+GCF_024296825.1	Staphylococcus aureus subsp. aureus RN4220	RN4220
+GCF_000160335.2	Staphylococcus aureus subsp. aureus 55/2053	55/2053
+GCF_000027045.1	Staphylococcus aureus subsp. aureus TW20	TW20
+GCF_000024585.1	Staphylococcus aureus subsp. aureus ED98	ED98
+GCF_000210315.1	Staphylococcus aureus subsp. aureus ED133	ED133
+GCF_000025145.1	Staphylococcus aureus 04-02981	04-02981
+GCF_015475575.1	Staphylococcus aureus LAC	LAC
+GCF_000144955.2	Staphylococcus aureus subsp. aureus JKD6159	JKD6159
+GCF_000253135.1	Staphylococcus aureus subsp. aureus ECT-R 2	ECT-R 2
+GCF_000189455.2	Staphylococcus aureus O46	O46
+GCF_000237265.1	Staphylococcus aureus subsp. aureus LGA251	LGA251
+GCF_000204665.1	Staphylococcus aureus subsp. aureus T0131	T0131
+GCF_000245495.1	Staphylococcus aureus subsp. aureus VC40	VC40
+GCF_000284535.1	Staphylococcus aureus subsp. aureus HO 5096 0412	HO 5096 0412
+GCF_000382965.1	Staphylococcus aureus subsp. aureus ST228	ST228
+GCF_000382985.1	Staphylococcus aureus subsp. aureus ST228	ST228
+GCF_000383005.1	Staphylococcus aureus subsp. aureus ST228	ST228
+GCF_000967325.1	Staphylococcus aureus subsp. aureus ST228	ST228
+GCF_000967345.1	Staphylococcus aureus subsp. aureus ST228	ST228
+GCF_000967365.1	Staphylococcus aureus subsp. aureus ST228	ST228
+GCF_000967385.1	Staphylococcus aureus subsp. aureus ST228	ST228
+GCF_000967405.1	Staphylococcus aureus subsp. aureus ST228	ST228
+GCF_000237125.2	Staphylococcus aureus subsp. aureus M013	M013
+GCF_000239235.1	Staphylococcus aureus subsp. aureus 11819-97	11819-97
+GCF_000463055.1	Staphylococcus aureus subsp. aureus CN1	CN1
+GCF_000470865.1	Staphylococcus aureus subsp. aureus SA40	SA40
+GCF_000470845.1	Staphylococcus aureus subsp. aureus SA957	SA957
+GCF_000296595.1	Staphylococcus aureus 08BA02176	08BA02176
+GCF_000412775.1	Staphylococcus aureus CA-347	CA-347
+GCF_000828035.1	Staphylococcus aureus subsp. aureus ST772-MRSA-V	DAR4145
+GCF_000737615.1	Staphylococcus aureus subsp. aureus SA268	SA268
+GCF_000452385.2	Staphylococcus aureus subsp. aureus Tager 104	Tager 104
+GCF_000462955.1	Staphylococcus aureus subsp. aureus 6850	6850
+GCF_000485885.1	Staphylococcus aureus subsp. aureus Z172	Z172
+GCF_000568455.1	Staphylococcus aureus USA300-ISMMS1	USA300-ISMMS1
 
 STDERR
 
-Command: wc -l .//saureus-acc/ncbi-accessions.txt
-
-STDOUT
-10 .//saureus-acc/ncbi-accessions.txt
-
-STDERR
-
-Command: ncbi-genome-download bacteria -A .//saureus-acc/ncbi-accessions.txt -l complete -o .//saureus-acc/genomes -F genbank -r 10 -m .//saureus-acc/ncbi-metadata.txt
+Command: ncbi-genome-download bacteria -A .//saureus/ncbi-accessions.txt -l complete -o .//saureus/genomes -F genbank -r 10 -m .//saureus/ncbi-metadata.txt
 
 STDOUT
 
@@ -20,35 +945,35 @@ STDERR
 Command: find . -name "*.gbff.gz"
 
 STDOUT
-./genomes/refseq/bacteria/GCF_008244725.1/GCF_008244725.1_ASM824472v1_genomic.gbff.gz
-./genomes/refseq/bacteria/GCF_019669165.1/GCF_019669165.1_ASM1966916v1_genomic.gbff.gz
-./genomes/refseq/bacteria/GCF_019551375.1/GCF_019551375.1_ASM1955137v1_genomic.gbff.gz
-./genomes/refseq/bacteria/GCF_002209325.1/GCF_002209325.1_ASM220932v1_genomic.gbff.gz
-./genomes/refseq/bacteria/GCF_019551415.1/GCF_019551415.1_ASM1955141v1_genomic.gbff.gz
-./genomes/refseq/bacteria/GCF_003111745.1/GCF_003111745.1_ASM311174v1_genomic.gbff.gz
-./genomes/refseq/bacteria/GCF_024399375.1/GCF_024399375.1_ASM2439937v1_genomic.gbff.gz
-./genomes/refseq/bacteria/GCF_000815125.1/GCF_000815125.1_ASM81512v1_genomic.gbff.gz
-./genomes/refseq/bacteria/GCF_002000825.1/GCF_002000825.1_ASM200082v1_genomic.gbff.gz
-./genomes/refseq/bacteria/GCF_002633865.1/GCF_002633865.1_ASM263386v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_026625345.1/GCF_026625345.1_ASM2662534v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_025398055.1/GCF_025398055.1_ASM2539805v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_003595405.1/GCF_003595405.1_ASM359540v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_020389565.1/GCF_020389565.1_ASM2038956v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_014696415.1/GCF_014696415.1_ASM1469641v2_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_020389265.1/GCF_020389265.1_ASM2038926v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_003490125.1/GCF_003490125.1_ASM349012v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_005705815.1/GCF_005705815.1_ASM570581v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_025559625.1/GCF_025559625.1_ASM2555962v1_genomic.gbff.gz
+./genomes/refseq/bacteria/GCF_020389445.1/GCF_020389445.1_ASM2038944v1_genomic.gbff.gz
 
 STDERR
 
-Command: cd-hit -i .//saureus-acc/genomes/full_cds.faa -o .//saureus-acc/genomes/saureus-acc.faa -s 0.8 -g 1 -c 0.9 -T 1 -M 0
+Command: cd-hit -i .//saureus/genomes/full_cds.faa -o .//saureus/genomes/saureus.faa -s 0.8 -g 1 -c 0.9 -T 1 -M 0
 
 STDOUT
 ================================================================
 Program: CD-HIT, V4.8.1 (+OpenMP), Aug 07 2022, 06:48:22
-Command: cd-hit -i .//saureus-acc/genomes/full_cds.faa -o
-         .//saureus-acc/genomes/saureus-acc.faa -s 0.8 -g 1 -c
-         0.9 -T 1 -M 0
+Command: cd-hit -i .//saureus/genomes/full_cds.faa -o
+         .//saureus/genomes/saureus.faa -s 0.8 -g 1 -c 0.9 -T 1
+         -M 0
 
-Started: Thu Jan 19 06:06:14 2023
+Started: Thu Jan 19 07:00:40 2023
 ================================================================
                             Output                              
 ----------------------------------------------------------------
-total seq: 26984
-longest and shortest : 10624 and 15
-Total letters: 7855455
+total seq: 26338
+longest and shortest : 10547 and 19
+Total letters: 7689793
 Sequences have been sorted
 
 Approximated minimal memory consumption:
@@ -56,41 +981,41 @@ Sequence        : 11M
 Buffer          : 1 X 18M = 18M
 Table           : 1 X 65M = 65M
 Miscellaneous   : 0M
-Total           : 96M
+Total           : 95M
 
 Table limit with the given memory limit:
 Max number of representatives: 4000000
-Max number of word counting entries: 243812000
+Max number of word counting entries: 242773500
 
-comparing sequences from          0  to      26984
-....................    10000  finished       1242  clusters
-....................    20000  finished       2559  clusters
+comparing sequences from          0  to      26338
+....................    10000  finished       1309  clusters
+....................    20000  finished       2757  clusters
 ......
-    26984  finished       3703  clusters
+    26338  finished       3966  clusters
 
 Approximated maximum memory consumption: 104M
 writing new database
 writing clustering information
 program completed !
 
-Total CPU time 1.71
+Total CPU time 1.70
 
 STDERR
 
-Command: mv .//saureus-acc/genomes/saureus-acc.faa .//saureus-acc
+Command: mv .//saureus/genomes/saureus.faa .//saureus
 
 STDOUT
 
 STDERR
 
-Command: grep -H -c "^>" .//saureus-acc/saureus-acc.faa
+Command: grep -H -c "^>" .//saureus/saureus.faa
 
 STDOUT
-.//saureus-acc/saureus-acc.faa:3703
+.//saureus/saureus.faa:3966
 
 STDERR
 
-Command: rm -rf .//saureus-acc/genomes
+Command: rm -rf .//saureus/genomes
 
 STDOUT
 

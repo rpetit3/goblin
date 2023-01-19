@@ -1,0 +1,27 @@
+{
+    "command": "bin/goblin --query 1280 --prefix saureus --limit 10 --force",
+    "date": "2023-01-19T07:00:42Z",
+    "versions": {
+        "goblin": "1.0.0",
+        "biopython": "1.80",
+        "cd-hit": "4.8.1",
+        "ncbi-genome-download": "0.3.1"
+    },
+    "genome_size": {
+        "min": 2719166,
+        "median": 2778744,
+        "mean": 2811002,
+        "max": 2949899,
+        "description": "Genome size values are based on 10 genomes"
+    },
+    "summary": {
+        "total_query_hits": 931,
+        "total_genomes": 10,
+        "total_cds": 27175,
+        "total_hypothetical": 0,
+        "total_pseudogenes": 837,
+        "total_proteins": 26338,
+        "total_clusters": 3966,
+        "percent_reduced": "0.85"
+    }
+}

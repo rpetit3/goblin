@@ -6,7 +6,7 @@ from rich.console import Console
 from rich.table import Table
 import rich_click as click
 
-VERSION = "0.0.1"
+VERSION = "1.0.0"
 
 import rich_click as click
 click.rich_click.USE_RICH_MARKUP = True
@@ -50,12 +50,29 @@ def check_dependencies():
     sys.exit(exit_code)
 
 
+def get_versions(as_string=False):
+    import Bio
+    versions = {
+        'goblin': VERSION,
+        'biopython': Bio.__version__,
+        'cd-hit': execute("cd-hit -h | head -n 1 | sed 's/^.*====== CD-HIT version //;s/ (built on .*) ======//' ", skip_log=True)[0],
+        'ncbi-genome-download': execute('ncbi-genome-download --version', skip_log=True)[0],
+    }
+
+    if as_string:
+        return f'goblin:{versions["goblin"]};biopython:{versions["biopython"]};cd-hit:{versions["cd-hit"]};ncbi-genome-download:{versions["ncbi-genome-download"]}'
+    else:
+        return versions
+
+
 def get_log():
     return log_file
+
 
 def set_log(log):
     global log_file
     log_file = log
+
 
 def write_to_log(cmd, stdout, stderr):
     """Write the command and output to a log file."""
@@ -127,7 +144,7 @@ def download_genomes(query, assembly_level, outdir, limit, is_taxid, debug):
     )
 
     # Return a list of downloaded GenBank files
-    gbff_files = execute('find . -name "*.gbff.gz"', directory=outdir)
+    gbff_files = [gbff for gbff in execute('find . -name "*.gbff.gz"', directory=outdir) if gbff]
     if debug:
         print(gbff_files)
     
@@ -170,7 +187,6 @@ def parse_gbff(gbffs, outdir, debug):
     Extract genome size and proteins from GenBank files
     """
     import gzip
-    import json
     from Bio import SeqIO
     from statistics import median, mean
     genome_sizes = []
@@ -218,18 +234,6 @@ def parse_gbff(gbffs, outdir, debug):
                 total_pseudo += 1
             elif is_hypothetical:
                 total_hypothetical += 1
-
-    # Write the genome sizes file
-    genome_size_dict = {
-        'min': min(genome_sizes),
-        'median': int(median(genome_sizes)),
-        'mean': int(mean(genome_sizes)),
-        'max': max(genome_sizes),
-        'total': len(genome_sizes),
-        'description': f'Genome size values are based on {len(genome_sizes)} genomes'
-    }
-    with open(f'{outdir}/genome_size.json', 'w') as genome_size_fh:
-        json.dump(genome_size_dict, genome_size_fh, indent=4)
 
     return {
         'full_cds_file': full_cds_file,
@@ -287,7 +291,9 @@ def run_cdhit(full_faa, prefix, outdir, identity, overlap, cpus, max_memory, fas
 def goblin(query, prefix, assembly_level, is_taxid, limit, identity, overlap, max_memory, fast_cluster, outdir, force, cpus, compress, keep_files, debug, check):
     """[u]G[/u]enerate trusted pr[u]O[/u]teins to supplement [u]B[/u]acteria[u]L[/u] annotat[u]I[/u]o[u]N[/u]"""
     from datetime import datetime
+    import json
 
+    console = Console()
     workdir = f'{outdir}/{prefix}'
     set_log(f'{outdir}/{prefix}/goblin.log')
     if Path(workdir).exists() and not force:
@@ -313,7 +319,7 @@ def goblin(query, prefix, assembly_level, is_taxid, limit, identity, overlap, ma
 
             # Clean up
             if not keep_files:
-                print("[italic]\nCleaning up temporary files...[/italic]")
+                print("[italic]\nCleaning up temporary files...[/italic]\n")
                 execute(f'rm -rf {workdir}/genomes')
                 if compress:
                     print("[italic]\nCompressing outputs...[/italic]")
@@ -321,10 +327,18 @@ def goblin(query, prefix, assembly_level, is_taxid, limit, identity, overlap, ma
                     execute(f'gzip --best {workdir}/goblin.log', skip_log=True)
 
             # Generate summary file
-            with open(f'{workdir}/goblin-summary.txt', 'w') as summary_fh:
-                d = {
-                    'run_cmd': ' '.join(sys.argv),
-                    'run_date': datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+            d = {
+                'command': ' '.join(sys.argv),
+                'date': datetime.now().strftime("%Y-%m-%dT%H:%M:%SZ"),
+                'versions': get_versions(),
+                'genome_size': {
+                    'min': gbff_info['genome_size_min'],
+                    'median': gbff_info['genome_size_median'],
+                    'mean': gbff_info['genome_size_mean'],
+                    'max': gbff_info['genome_size_max'],
+                    'description': gbff_info['genome_size_description'],
+                },
+                'summary': {
                     'total_query_hits': total_query_hits,
                     'total_genomes': gbff_info['total_genomes'],
                     'total_cds': gbff_info['total_cds'],
@@ -334,10 +348,43 @@ def goblin(query, prefix, assembly_level, is_taxid, limit, identity, overlap, ma
                     'total_clusters': total_clusters,
                     'percent_reduced': f"{(1.0 - total_clusters / float(gbff_info['total_passed'])):.2f}"
                 }
-                print("[italic]\nGoblin Summary[/italic]")
-                for k, v in d.items():
-                    print(f"{k}: {v}")
-                    summary_fh.write(f"{k}\t{v}\n")
+            }
+            if debug:
+                print(d)
+            with open(f'{workdir}/goblin-summary.json', 'w') as json_fh:
+                json.dump(d, json_fh, indent=4)
+
+            summary_table = Table(title=f"[italic]Goblin Summary[/italic]")
+            summary_table.add_column("key", style="white")
+            summary_table.add_column("value", style="cyan")
+            cols = [
+                'command', 'date', 'versions', 'total_query_hits', 'total_genomes', 'total_cds', 'total_hypothetical',
+                'total_pseudogenes', 'total_proteins', 'total_clusters', 'percent_reduced', 'genome_size_min', 
+                'genome_size_median', 'genome_size_mean', 'genome_size_max', 'genome_size_description'
+            ]
+            vals = []
+            for col in cols:
+                val = None
+                if col.startswith('total_') or col == 'percent_reduced':
+                    val = str(d['summary'][col])
+                elif col.startswith('genome_size'):
+                    key = col.replace('genome_size_', '')
+                    val = str(d['genome_size'][key])
+                elif col == 'versions':
+                    val = str(get_versions(as_string=True))
+                else:
+                    val = str(d[col])
+                vals.append(val)
+                summary_table.add_row(col, val)
+                if debug:
+                    print(col, val)
+
+            with open(f'{workdir}/goblin-summary.tsv', 'w') as tsv_fh:
+                tsv_fh.write('\t'.join(cols))
+                tsv_fh.write('\n')
+                tsv_fh.write('\t'.join(vals))
+                tsv_fh.write('\n')
+            console.print(summary_table)  
         else:
             print("No genomes found, exiting")
             sys.exit(1)

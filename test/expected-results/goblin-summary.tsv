@@ -1,0 +1,2 @@
+command	date	versions	total_query_hits	total_genomes	total_cds	total_hypothetical	total_pseudogenes	total_proteins	total_clusters	percent_reduced	genome_size_min	genome_size_median	genome_size_mean	genome_size_max	genome_size_description
+bin/goblin --query 1280 --prefix saureus --limit 10 --force	2023-01-19T07:00:42Z	goblin:1.0.0;biopython:1.80;cd-hit:4.8.1;ncbi-genome-download:0.3.1	931	10	27175	0	837	26338	3966	0.85	2719166	2778744	2811002	2949899	Genome size values are based on 10 genomes
